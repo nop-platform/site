@@ -129,17 +129,25 @@ ksio:
     provider: true
   header:
     navs:
-      - text: 博客
-        url: https://www.zhihu.com/column/reversible-computation
-      - text: Gitee
-        url: https://gitee.com/nop-platform
+      - text: 学习
+        children:
+          - text: 文章
+            url: https://www.zhihu.com/column/reversible-computation
+          - text: 视频
+            url: https://space.bilibili.com/3493261219990250
+      - text: 社区
+        children:
+          - text: 概览
+            url: /community/
+          - text: Gitee
+            url: https://gitee.com/nop-platform
       - text: English
         url: https://nop-platform.github.io
     navbar:
       placement: right
   footer:
     links:
-      - text: Gitee
-        url: https://gitee.com/nop-platform
+      - text: 社区
+        url: /community/
   social:
     share: true

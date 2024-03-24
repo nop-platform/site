@@ -129,10 +129,14 @@ ksio:
     provider: true
   header:
     navs:
-      - text: Blog
-        url: https://entropy-cloud.github.io
-      - text: GitHub
-        url: https://github.com/nop-platform
+      - text: Learn
+        children:
+          - text: Blog
+            url: https://entropy-cloud.github.io
+      - text: Community
+        children:
+          - text: GitHub
+            url: https://github.com/nop-platform
       - text: 中文
         url: https://nop-platform.gitee.io
     navbar:
