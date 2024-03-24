@@ -1,0 +1,141 @@
+title: Nop Platform
+description: Nop Platform 2.0 is a new generation of low-code platform based on the theory of reversible computation. It is committed to overcoming the dilemma that low-code platform can not get rid of the exhaustive method, transcending the component technology from the theoretical level, and effectively solving the problem of coarse-grained software reuse.
+keywords:
+tagline: New generation of low-code platform based on the theory of reversible computation
+
+port: 10102
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Handling Reading
+exclude:
+  - .asset-cache
+  - .sass-cache
+  - .vscode
+  - node_modules
+  - build
+  - vendors
+  - src
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - Gruntfile.coffee
+  - bower.json
+  - package.json
+  - package-lock.json
+  - CNAME
+encoding: utf-8
+
+# Plugins
+gems:
+  - jekyll-assets
+  - jekyll-archives
+  - jekyll-feed
+  - jekyll-contentblocks
+  - jekyll-sitemap
+  - jekyll/tagging
+  - jekyll-tagging-related_posts
+  - jekyll_version_plugin
+
+# Conversion
+markdown: kramdown
+highlighter: pygments
+
+# Outputting
+permalink: /posts/:title/
+timezone: Asia/Shanghai
+
+# YAML frontmatter
+defaults:
+  # 默认
+  - scope:
+      path: ""
+    values:
+      layout: ksio/default
+  # 页面
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: ksio/page
+  # 文章
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: ksio/post
+      css:
+        - ksio/pages/post
+      js:
+        - ksio/initializers/time
+        - ksio/initializers/lazyload
+      siblings: true
+
+
+
+# =====
+# Plugin-specific configurations
+# =====
+
+# Jekyll Archives
+# https://github.com/jekyll/jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+    - year
+  layouts:
+    category: archive/category
+    tag: archive/tag
+    year: archive/year
+  permalinks:
+    category: "/categories/:name/"
+    tag: "/tags/:name/"
+    year: "/archives/:year/"
+
+# Jekyll Feed
+feed:
+  path: atom.xml
+name: Nop Platform
+author:
+  name: Ourai L.
+  email: ourairyu@gmail.com
+  uri: https://ourai.ws/
+  twitter: ntksol
+github:
+  url: https://nop-platform.github.io
+
+
+
+# =====
+# Customized configurations
+# =====
+
+ksio:
+  meta:
+    url: https://nop-platform.github.io
+  brand:
+    text: Nop
+    color: "#0871ab"
+  copyright:
+    owner:
+      text: Nop Community
+      url: https://nop-platform.github.io
+    period:
+      start: 2024
+    provider: true
+  header:
+    navs:
+      - text: GitHub
+        url: https://github.com/nop-platform
+    navbar:
+      placement: right
+  footer:
+    links:
+      - text: GitHub
+        url: https://github.com/nop-platform
+  social:
+    share: true

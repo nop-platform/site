@@ -1,0 +1,18 @@
+---
+layout: ksio/default
+css:
+  - pages/index
+permalink: index.html
+---
+
+{% include ksio/partials/header.html %}
+<main class="Page-content">
+  <article class="Homepage">
+    <header class="Homepage-header">
+      <h1>{{ site.ksio.brand.text | default: site.title }}</h1>
+      <p class="Homepage-slogan">{{ site.tagline | default: site.description }}</p>
+      <p class="Homepage-notice">This website is working in progress, visit the source code repo on <a href="https://github.com/entropy-cloud/nop-entropy">GitHub</a> instead please.</p>
+    </header>
+  </article>
+</main>
+{% include footer.html %}

@@ -1,0 +1,15 @@
+.DS_Store
+
+.vscode/
+node_modules/
+
+.cache/
+.asset-cache/
+.sass-cache/
+
+sites/*/*/ksio/
+sites/*/_assets/*/ksio/
+sites/*/_assets/*/knosys/
+sites/*/_data/knosys/
+sites/*/_knosys/
+sites/*/_site/

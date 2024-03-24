@@ -1,0 +1,21 @@
+{
+  "name": "@nop/website",
+  "version": "0.0.0",
+  "description": "Official website",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "copy": "node scripts site copy",
+    "build": "node scripts gen",
+    "clean": "rm -rf ./sites/*/.asset-cache",
+    "start": "node scripts site serve",
+    "predeploy": "npm run clean",
+    "deploy": "node scripts site deploy"
+  },
+  "author": "Ourai Lin <ourairyu@gmail.com> (https://ourai.ws/)",
+  "license": "ISC",
+  "devDependencies": {
+    "@ntks/toolbox": "0.0.6",
+    "js-yaml": "^3.14.0"
+  }
+}

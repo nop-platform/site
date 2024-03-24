@@ -1,0 +1,20 @@
+{
+  "command": "./scripts",
+  "site": {
+    "default": {
+      "alias": "nop-zh",
+      "source": "./sites/zh",
+      "git": {
+        "url": "git@gitee.com:nop-platform/nop-platform.git"
+      }
+    },
+    "en": {
+      "alias": "nop-en",
+      "source": "./sites/en",
+      "git": {
+        "url": "https://github.com/nop-platform/nop-platform.github.io.git",
+        "branch": "gh-pages"
+      }
+    }
+  }
+}
