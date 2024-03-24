@@ -1,0 +1,32 @@
+@import "../helper";
+
+.Homepage {
+  &-header {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 96px 20px;
+    text-align: center;
+    background-color: #fff;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: .3em;
+      font-size: 10rem;
+      font-weight: 700;
+    }
+  }
+
+  &-slogan {
+    font-size: 2.5rem;
+  }
+
+  &-notice {
+    display: inline-block;
+    margin-top: 36px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 400;
+    background-color: #f5f5f5;
+  }
+}

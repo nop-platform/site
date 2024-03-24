@@ -1,0 +1,18 @@
+---
+layout: ksio/default
+css:
+  - pages/index
+permalink: index.html
+---
+
+{% include ksio/partials/header.html %}
+<main class="Page-content">
+  <article class="Homepage">
+    <header class="Homepage-header">
+      <h1>{{ site.ksio.brand.text | default: site.title }}</h1>
+      <p class="Homepage-slogan">{{ site.tagline | default: site.description }}</p>
+      <p class="Homepage-notice">本站正在建设中，请暂时访问位于 <a href="https://gitee.com/canonical-entropy/nop-entropy">Gitee</a> 的源码仓库。</p>
+    </header>
+  </article>
+</main>
+{% include ksio/partials/footer.html %}

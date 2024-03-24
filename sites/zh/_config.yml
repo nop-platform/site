@@ -1,7 +1,7 @@
-title: Nop Platform
-description: Nop Platform 2.0 is a new generation of low-code platform based on the theory of reversible computation. It is committed to overcoming the dilemma that low-code platform can not get rid of the exhaustive method, transcending the component technology from the theoretical level, and effectively solving the problem of coarse-grained software reuse.
+title: Nop 平台
+description: Nop Platform 2.0 是基于可逆计算原理从零开始构建的新一代低代码平台，它致力于克服低代码平台无法摆脱穷举法的困境，从理论层面超越组件技术，有效的解决粗粒度软件复用的问题。
 keywords:
-tagline: New generation of low-code platform based on the theory of reversible computation
+tagline: 基于可逆计算原理从零开始构建的新一代低代码平台
 
 port: 10101
 
@@ -99,14 +99,14 @@ jekyll-archives:
 # Jekyll Feed
 feed:
   path: atom.xml
-name: Nop Platform
+name: Nop 平台
 author:
-  name: Ourai L.
+  name: 欧雷
   email: ourairyu@gmail.com
   uri: https://ourai.ws/
-  twitter: ntksol
+  twitter: fxxkol
 github:
-  url: https://nop-platform.github.io
+  url: https://nop-platform.gitee.io
 
 
 
@@ -116,30 +116,30 @@ github:
 
 ksio:
   meta:
-    url: https://nop-platform.github.io
+    url: https://nop-platform.gitee.io
   brand:
     text: Nop
     color: "#0871ab"
   copyright:
     owner:
-      text: Nop Community
-      url: https://nop-platform.github.io
+      text: Nop 社区
+      url: https://nop-platform.gitee.io
     period:
       start: 2024
     provider: true
   header:
     navs:
-      - text: Blog
-        url: https://entropy-cloud.github.io
-      - text: GitHub
-        url: https://github.com/nop-platform
-      - text: 中文
-        url: https://nop-platform.gitee.io
+      - text: 博客
+        url: https://www.zhihu.com/column/reversible-computation
+      - text: Gitee
+        url: https://gitee.com/nop-platform
+      - text: English
+        url: https://nop-platform.github.io
     navbar:
       placement: right
   footer:
     links:
-      - text: GitHub
-        url: https://github.com/nop-platform
+      - text: Gitee
+        url: https://gitee.com/nop-platform
   social:
     share: true
