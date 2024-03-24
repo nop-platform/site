@@ -1,0 +1,32 @@
+---
+title: Meet the Team
+css:
+  - pages/team
+---
+
+<h2>Core Members</h2>
+<ul class="MemberList">
+  {% for mem in site.data.local.members %}
+    {% assign img_dir = mem.slug | prepend: "avatars/" | append: "/" %}
+    <li class="MemberList-item">
+      <div class="Member">
+        <div class="Member-header">
+          <img class="Member-avatar" src="{{ img_dir | asset_path }}" alt="{{ mem.name }}">
+          <h3 class="Member-name" data-toc-skip="true">{% if mem.website %}<a href="{{ mem.website }}" target="_blank" rel="external nofollow">{{ mem.name }}</a>{% else %}{{ mem.name }}{% endif %}</h3>
+          <p class="Member-job">{{ mem.job }}{% if mem.org %} @ {{ mem.org }}{% endif %}</p>
+        </div>
+        <div class="Member-body">
+          <div class="Member-projects"><i class="fa fa-code"></i><ul>
+            {% for prj in mem.projects %}
+              <li><a href="{{ prj.url }}" target="_blank" rel="external nofollow">{{ prj.name }}</a></li>
+            {% endfor %}
+          </ul></div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% contentfor footer %}
+  {% include ksio/widgets/share.html %}
+{% endcontentfor %}

@@ -139,6 +139,8 @@ ksio:
         children:
           - text: 概览
             url: /community/
+          - text: 团队
+            url: /team/
           - text: Gitee
             url: https://gitee.com/nop-platform
       - text: English

@@ -135,6 +135,8 @@ ksio:
             url: https://entropy-cloud.github.io
       - text: Community
         children:
+          - text: Team
+            url: /team/
           - text: GitHub
             url: https://github.com/nop-platform
       - text: 中文

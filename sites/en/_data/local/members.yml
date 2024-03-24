@@ -1,0 +1,14 @@
+- name: canonical
+  slug: canonical
+  job: Creator
+  org: Nop Platform
+  projects:
+    - name: Nop Platform
+      url: https://github.com/entropy-cloud/nop-entropy
+- name: Ourai L.
+  slug: ourai
+  job: Indie Developer
+  website: https://ourai.github.io
+  projects:
+    - name: Nop official website
+      url: https://github.com/nop-platform/nop-platform.github.io
