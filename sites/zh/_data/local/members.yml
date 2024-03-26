@@ -1,13 +1,14 @@
 - name: canonical
   slug: canonical
-  job: 作者
+  job: 创作者
   org: Nop 平台
   projects:
     - name: Nop 平台
       url: https://gitee.com/canonical-entropy/nop-entropy
 - name: 欧雷
   slug: ourai
-  job: 独立开发者
+  job: 发起人 & 站长
+  org: Nop 社区
   website: https://linxoid.com/ourai
   projects:
     - name: Nop 官网
