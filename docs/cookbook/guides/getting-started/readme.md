@@ -1,5 +1,3 @@
-# 开发示例
-
 操作演示视频：[使用Nop平台开发商品列表页面的完整示例](https://www.bilibili.com/video/BV1384y1g78L/)
 
 Nop平台是可逆计算理论的一个具体落地实现方案。为了演示可逆计算理论的相关概念，它内置了针对后台管理系统的一套低代码开发流程，可以采用低代码的方式来快速开发后台管理系统，并且无需特殊设计，利用平台内置机制即可自动提供产品化定制能力。以下以`nop-app-mall`项目的开发为例，介绍Nop平台内置的低代码开发流程。
@@ -106,7 +104,7 @@ java -jar nop-cli.jar gen model/app-mall.orm.xlsx -t=/nop/templates/orm
 
 具体生成的内容如下:
 
-```
+```text
 ├─app-mall-api       对外暴露的接口定义和消息定义
 ├─app-mall-codegen   代码生成辅助工程，根据ORM模型更新当前工程代码
 ├─app-mall-dao       数据库实体定义和ORM模型
@@ -478,7 +476,7 @@ Nop平台为 **无代码开发模式（NoCode）** 提供了内置支持。通�
 
 目前Nop平台实际使用的前端框架是[百度AMIS框架](https://aisuda.bce.baidu.com/amis/zh-CN/docs/index)，它使用JSON格式的页面文件。在浏览器地址栏中我们直接输入后台的`page.yaml`文件来查看页面文件的内容(**无需在前端路由中注册**)，例如
 
-```
+```text
 http://localhost:8080/index.html?#/amis/app/mall/pages/LitemallGoods/main.page.yaml
 ```
 

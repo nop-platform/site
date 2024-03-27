@@ -4,6 +4,7 @@
     "default": {
       "alias": "nop-zh",
       "source": "./sites/zh",
+      "data": "./docs",
       "git": {
         "url": "git@gitee.com:nop-platform/nop-platform.git",
         "branch": "ge-pages"

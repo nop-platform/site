@@ -81,7 +81,7 @@ NopIoC的设计中包含了与NopConfig配置中心的一体化设计。在beans
 
 ```xml
 <bean id="xx">
-   <property name="poolSize" value="@r-cfg:my.pool-size|5" /> 
+   <property name="poolSize" value="@r-cfg:my.pool-size|5" />
 </bean>
 ```
 
@@ -90,7 +90,7 @@ NopIoC的设计中包含了与NopConfig配置中心的一体化设计。在beans
 另外在beans语法中还定义专门的ioc:config节点
 
 ```xml
-  <ioc:config id="nopOrmGlobalCacheConfig" class="io.nop.commons.cache.CacheConfig" 
+  <ioc:config id="nopOrmGlobalCacheConfig" class="io.nop.commons.cache.CacheConfig"
     ioc:config-prefix="nop.orm.global-cache"  ioc:default="true"/>
 ```
 
@@ -134,7 +134,7 @@ public class MyController{
 @BizModel("MyObject")
 public class MyObjectBizModel{
     @BizQuery
-    public PageBean<MyEntity> findPage(@Name("id") id, 
+    public PageBean<MyEntity> findPage(@Name("id") id,
              FieldSelection selection, IServiceContext ctx){
        return ....
     }
@@ -255,9 +255,9 @@ public interface LitemallGoodsMapper {
 
 Nop平台提供了非常强大的模型驱动开发模式，可以解析Excel数据模型文件自动生成实体定义、Mapper接口定义、元数据定义，后台GraphQL服务，甚至包括前台增加改查页面等。
 
-![](https://gitee.com/canonical-entropy/nop-entropy/raw/master/docs/tutorial/excel-model.png)
+![](excel-model.png)
 
-详细设计可以参见文章 
+详细设计可以参见文章
 
 1. [低代码平台需要什么样的ORM引擎?(2)](https://zhuanlan.zhihu.com/p/545063021)
 
@@ -347,7 +347,7 @@ XNode.fromTreeBean(treeBean) // 从TreeBean转换为XNode
 
 进一步的详细信息可以参考文章：
 
-1. [低代码平台中的元编程(Meta Programming)](https://zhuanlan.zhihu.com/p/652413095), 
+1. [低代码平台中的元编程(Meta Programming)](https://zhuanlan.zhihu.com/p/652413095),
 
 2. [替代XSD的统一元模型定义语言:XDef](https://zhuanlan.zhihu.com/p/652191061),
 
@@ -448,6 +448,6 @@ Nop平台的实现与SpringCloud相比，主要有如下特点：
 
 4. 统一使用XDSL规范来实现模型DSL，可以随时新增DSL模型，也可以在原有DSL模型中增加新的扩展属性。IDE插件自动识别并支持新的DSL模型，无需特殊编写支持插件。
 
-5. 模型驱动集成在DevOps开发流程中，在maven打包过程中实现代码生成、模型转换等，不需要单独部署模型管理平台。   
+5. 模型驱动集成在DevOps开发流程中，在maven打包过程中实现代码生成、模型转换等，不需要单独部署模型管理平台。
 
 Nop平台可以作为运行在SpringCloud之上的一种扩展组件，它与SpringCloud内置机制并不冲突，它内部的各种组件也可以被替换为SpringCloud的实现，只是会丢失很多高级特性、损失性能、损失扩展性，破坏程序结构的可推理性。

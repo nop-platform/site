@@ -15,6 +15,7 @@ exclude:
   - .asset-cache
   - .sass-cache
   - .vscode
+  - .knosysrc
   - node_modules
   - build
   - vendors

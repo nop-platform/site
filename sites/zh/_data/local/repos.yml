@@ -1,0 +1,6 @@
+cookbook:
+  name: 食用手册
+  collection: guides
+  toc:
+    - slug: overview
+    - slug: getting-started

@@ -1,24 +1,24 @@
-- text: ¼ò½é
+- text: ä»‹ç»
   children:
-    - text: ÎÄµµ¸ÅÀÀ
-      uri: zh/index.md
-    - text: ÈëÃÅ½Ì³Ì
-      uri: zh/tutorial/tutorial.md
-- text: ÓÃ»§Ö¸ÄÏ
+    - text: æ–‡æ¡£æ¦‚è§ˆ
+      uri: cookbook/guides/overview
+    - text: å…¥é—¨æ•™ç¨‹
+      uri: cookbook/guides/getting-started
+- text: ç”¨æˆ·æŒ‡å—
   children:
-    - text: °²×°ºÍÅäÖÃ
+    - text: å®‰è£…å’Œé…ç½®
       uri: zh/user-guide/installation.md
-    - text: ±¨±íÒıÇæ
+    - text: æŠ¥è¡¨å¼•æ“
       uri: zh/user-guide/report.md
-- text: Èí¼ş¼Ü¹¹
-  children: 
-     - text: Ä£¿éÒÀÀµ¹ØÏµ
+- text: è½¯ä»¶æ¶æ„
+  children:
+     - text: æ¨¡å—ä¾èµ–å…³ç³»
        uri: zh/arch/module-dependecy.md
-     - text: ºËĞÄ´úÂëÔÄ¶Áµ¼Òı
+     - text: æ ¸å¿ƒä»£ç é˜…è¯»å¯¼å¼•
        uri: zh/arch/core-code-guidance.md
-- text: ¿ª·¢Ö¸ÄÏ
+- text: å¼€å‘æŒ‡å—
   children:
      - text: config
        uri: zh/dev-guide/config.md
      - text: orm
-       uri: zh/dev-guide/orm/index.md  
+       uri: zh/dev-guide/orm/index.md
