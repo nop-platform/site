@@ -9,6 +9,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 # Handling Reading
 exclude:
@@ -73,6 +76,13 @@ defaults:
         - ksio/initializers/time
         - ksio/initializers/lazyload
       siblings: true
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: local/project
+      css:
+        - local/layouts/project
 
 
 
@@ -138,8 +148,10 @@ ksio:
             url: https://space.bilibili.com/3493261219990250
       - text: 项目
         children:
-          - text: Nop 平台
-            url: https://gitee.com/canonical-entropy/nop-entropy
+          - text: Nop Entropy
+            url: /projects/nop-entropy/
+          - text: Nop Chaos
+            url: /projects/nop-chaos/
       - text: 关于
         children:
           - text: 社区

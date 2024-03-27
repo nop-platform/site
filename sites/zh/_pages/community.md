@@ -2,7 +2,7 @@
 title: 社区
 ---
 
-[Nop 平台](https://gitee.com/canonical-entropy/nop-entropy){:rel="external nofollow"}{:target="_blank"}是 [canonical](https://gitee.com/canonical-entropy){:rel="external nofollow"}{:target="_blank"} 自创的[可逆计算理论](https://zhuanlan.zhihu.com/p/64004026){:rel="external nofollow"}{:target="_blank"}的代码实现，提供新的软件构造原理的某种元机制和元工具，是一种比较纯粹的「引擎」，并不直接提供对于一线业务开发人员友好的功能。
+[Nop 平台](/projects/nop-entropy/)是 [canonical](https://gitee.com/canonical-entropy){:rel="external nofollow"}{:target="_blank"} 自创的[可逆计算理论](https://zhuanlan.zhihu.com/p/64004026){:rel="external nofollow"}{:target="_blank"}的代码实现，提供新的软件构造原理的某种元机制和元工具，是一种比较纯粹的「引擎」，并不直接提供对于一线业务开发人员友好的功能。
 
 其创作者是一个不为世俗之事所扰且具有科研人员气质的理想主义者，因而[只关心作为底层的 Nop 平台的核心功能，自身不考虑任何商业化发展](https://zhuanlan.zhihu.com/p/682133332){:rel="external nofollow"}{:target="_blank"}。
 
