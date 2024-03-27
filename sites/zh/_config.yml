@@ -1,6 +1,6 @@
-title: Nop 平台
+title: Nop
 description: Nop Platform 2.0 是基于可逆计算原理从零开始构建的新一代低代码平台，它致力于克服低代码平台无法摆脱穷举法的困境，从理论层面超越组件技术，有效的解决粗粒度软件复用的问题。
-keywords:
+keywords: Nop,Nop平台,Nop 平台,Nop Platform,Nop社区,Nop 社区,Nop Community,可逆计算,软件构造理论,低代码,lowcode,low-code,low code,低代码平台,lcdp,软件工程
 tagline: 基于可逆计算原理从零开始构建的新一代低代码平台
 
 port: 10101
@@ -99,7 +99,7 @@ jekyll-archives:
 # Jekyll Feed
 feed:
   path: atom.xml
-name: Nop 平台
+name: Nop
 author:
   name: 欧雷
   email: ourairyu@gmail.com
@@ -119,6 +119,7 @@ ksio:
     url: https://nop-platform.gitee.io
   brand:
     text: Nop
+    icon: "logo"
     color: "#0871ab"
   copyright:
     owner:
@@ -135,13 +136,17 @@ ksio:
             url: https://www.zhihu.com/column/reversible-computation
           - text: 视频
             url: https://space.bilibili.com/3493261219990250
-      - text: 社区
+      - text: 项目
         children:
-          - text: 概览
+          - text: Nop 平台
+            url: https://gitee.com/canonical-entropy/nop-entropy
+      - text: 关于
+        children:
+          - text: 社区
             url: /community/
           - text: 团队
             url: /team/
-          - text: Gitee
+          - text: Gitee 组织
             url: https://gitee.com/nop-platform
       - text: English
         url: https://nop-platform.github.io
@@ -151,5 +156,3 @@ ksio:
     links:
       - text: 社区
         url: /community/
-  social:
-    share: true
