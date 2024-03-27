@@ -14,6 +14,7 @@ css:
           <img class="Member-avatar" src="{{ img_dir | asset_path }}" alt="{{ mem.name }}">
           <h3 class="Member-name" data-toc-skip="true">{% if mem.website %}<a href="{{ mem.website }}" target="_blank" rel="external nofollow">{{ mem.name }}</a>{% else %}{{ mem.name }}{% endif %}</h3>
           <p class="Member-job">{{ mem.job }}{% if mem.org %} @ {{ mem.org }}{% endif %}</p>
+          {% if mem.sponsor %}<a class="Member-sponsor" href="{{ mem.sponsor }}" target="_blank" rel="external nofollow"><i class="fa fa-heart"></i><span>Sponsor</span></a>{% endif %}
         </div>
         <div class="Member-body">
           <div class="Member-projects"><i class="fa fa-code"></i><ul>

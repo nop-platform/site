@@ -55,6 +55,30 @@
     line-height: 1 !important;
   }
 
+  &-sponsor {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    height: 30px;
+    padding: 0 .8em;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    border: 1px solid #0871ab;
+    border-radius: 4px;
+    @include text-middle(".fa, span");
+
+    .fa {
+      margin-right: .5em;
+    }
+
+    &:hover {
+      color: #fff;
+      background-color: #0871ab;
+    }
+  }
+
   &-body {
     padding-top: 15px;
     font-weight: normal;
