@@ -1,10 +1,12 @@
+# 概览
+
 Nop平台包含大量创新设计，一开始接触可能会感觉内容过多。但实际上，Nop平台内部设计全部遵循可逆计算原理，它的一致性非常高，只要掌握了可逆计算的基本理论，即可通过查看XDef元模型来直接获知关于模型的大部分知识。
 
 B站视频： [Nop平台开发](https://www.bilibili.com/video/BV1u84y1w7kX/)，可以按照合集中的顺序观看
 
 初次接触时建议按照以下顺序浏览一遍文档：
 
-## 快速入门: [tutorial.md](tutorial/tutorial.md)
+## 快速入门: [tutorial.md](../getting-started/readme.md)
 
 介绍了基于数据模型进行系统开发的整体流程。
 可以参考视频 [使用Nop平台开发商品列表页面的完整示例](https://www.bilibili.com/video/BV1384y1g78L/)
