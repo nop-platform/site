@@ -14,10 +14,18 @@ Nop Entropy 是 Nop 平台的后端部分，前端部分可使用 [Nop Chaos](/p
 - 采用云原生设计，内置分布式事务和多租户支持，可以单机运行，也可以作为分布式集群运行，可以提供在线的 API 服务，也可以将针对单个业务对象的在线服务自动包装为针对批处理文件的批处理任务，对于大多数业务应用场景均提供相应的模型支持，只需少量配置即可完成主要功能，大大降低对手工编码的需求；
 - 在开发期可以作为**支持增量式开发的低代码平台**，自动生成各类代码以及相关文档，在运行期可以作为**面向最终用户的无代码平台的支撑技术**，允许客户在线调整业务模块功能，以所见即所得的方式进行产品迭代。
 
-## 示例工程
+## 新手入门
+
+### 示例工程
 
 - [`nop-app-mall`](https://gitee.com/canonical-entropy/nop-app-mall){:rel="external nofollow"}{:target="_blank"}：演示 Nop 平台基本开发流程；
 - [`nop-orm-demo`](https://gitee.com/xyplayman/nop-orm-demo){:rel="external nofollow"}{:target="_blank"}：演示 Nop 平台中 `nop-orm` 模块的使用。
+
+### 社区实践
+
+由学习并使用 Nop 平台的人自发总结整理的较为体系化的资料——
+
+- [Nop 开发实践](https://nop.crazydan.io/){:rel="external nofollow"}{:target="_blank"} @ [Crazydan Studio](https://studio.crazydan.org/){:rel="external nofollow"}{:target="_blank"}：包含简单的入门操作案例及一些代码分析等。
 
 ## 源码仓库
 

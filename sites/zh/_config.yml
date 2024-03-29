@@ -160,7 +160,7 @@ ksio:
       - text: 学习
         children:
           - text: 指南
-            url: /guides/overview/
+            url: /guides/
           - text: 文章
             url: https://www.zhihu.com/column/reversible-computation
           - text: 视频

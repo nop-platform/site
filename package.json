@@ -12,7 +12,7 @@
     "predeploy": "npm run clean",
     "deploy": "node scripts site deploy"
   },
-  "author": "Ourai Lin <ourairyu@gmail.com> (https://ourai.ws/)",
+  "author": "Ourai L. <ourairyu@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "@ntks/toolbox": "0.0.6",
