@@ -3,13 +3,12 @@
 .vscode/
 node_modules/
 
-.cache/
-.asset-cache/
-.sass-cache/
-
-sites/*/*/ksio/
-sites/*/_assets/*/ksio/
-sites/*/_assets/*/knosys/
-sites/*/_data/knosys/
-sites/*/_knosys/
-sites/*/_site/
+/.knosys/sites/*/.cache/
+/.knosys/sites/*/.asset-cache/
+/.knosys/sites/*/.sass-cache/
+/.knosys/sites/*/*/ksio/
+/.knosys/sites/*/_assets/*/ksio/
+/.knosys/sites/*/_assets/*/knosys/
+/.knosys/sites/*/_data/knosys/
+/.knosys/sites/*/_knosys/
+/.knosys/sites/*/_site/

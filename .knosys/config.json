@@ -3,8 +3,11 @@
   "site": {
     "default": {
       "alias": "nop-zh",
-      "source": "./sites/zh",
-      "data": "./docs",
+      "source": "./.knosys/sites/zh",
+      "data": {
+        "handbook": "./docs",
+        "doc": "../nop-entropy/docs"
+      },
       "git": {
         "url": "git@gitee.com:nop-platform/nop-platform.git",
         "branch": "ge-pages"
@@ -12,7 +15,7 @@
     },
     "en": {
       "alias": "nop-en",
-      "source": "./sites/en",
+      "source": "./.knosys/sites/en",
       "git": {
         "url": "https://github.com/nop-platform/nop-platform.github.io.git",
         "branch": "gh-pages"

@@ -7,7 +7,7 @@
   "scripts": {
     "copy": "node scripts site copy",
     "build": "node scripts gen",
-    "clean": "rm -rf ./sites/*/.asset-cache",
+    "clean": "rm -rf ./.knosys/sites/*/.asset-cache",
     "start": "node scripts site serve",
     "predeploy": "npm run clean",
     "deploy": "node scripts site deploy"

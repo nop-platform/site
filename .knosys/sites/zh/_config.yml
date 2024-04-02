@@ -23,6 +23,7 @@ exclude:
   - .sass-cache
   - .vscode
   - .knosysrc
+  - .knosys
   - node_modules
   - build
   - vendors
@@ -68,12 +69,21 @@ defaults:
       path: ""
       type: knosys
     values:
-      layout: ksio/doc
+      layout: local/doc
       css:
         - local/layouts/doc
       js:
         - ksio/initializers/time
         - ksio/initializers/lazyload
+  - scope:
+      path: "doc"
+      type: knosys
+    values:
+      repo: doc
+  - scope:
+      path: "handbook"
+      type: knosys
+    values:
       repo: cookbook
   # 页面
   - scope:
@@ -160,7 +170,7 @@ ksio:
       - text: 学习
         children:
           - text: 指南
-            url: /guides/
+            url: /projects/nop-entropy/docs/
           - text: 文章
             url: https://www.zhihu.com/column/reversible-computation
           - text: 视频
