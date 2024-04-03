@@ -4,10 +4,10 @@
     <li>
       {% assign _inc_collection = _inc_item.collection | default: include.collection %}
       {% if include.repo == "cookbook" %}
-        {% assign _inc_docs = site.data.knosys.handbook[include.repo][_inc_collection].items %}
+        {% assign _inc_docs = site.data.knosys.site[include.repo][_inc_collection].items %}
         {% assign _inc_path_spec = "qiidb" %}
-      {% elsif include.repo == "doc" %}
-        {% assign _inc_docs = site.data.knosys.docs.items %}
+      {% else %}
+        {% assign _inc_docs = site.data.knosys[include.repo].items %}
         {% assign _inc_path_spec = "file" %}
       {% endif %}
       {% assign _inc_base_part = include.base | default: "" %}

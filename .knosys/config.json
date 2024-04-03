@@ -5,8 +5,8 @@
       "alias": "nop-zh",
       "source": "./.knosys/sites/zh",
       "data": {
-        "handbook": "./docs",
-        "doc": "../nop-entropy/docs"
+        "site": "./docs",
+        "project-nop-entropy": "../nop-entropy/docs"
       },
       "git": {
         "url": "git@gitee.com:nop-platform/nop-platform.git",

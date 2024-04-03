@@ -76,15 +76,15 @@ defaults:
         - ksio/initializers/time
         - ksio/initializers/lazyload
   - scope:
-      path: "doc"
-      type: knosys
-    values:
-      repo: doc
-  - scope:
-      path: "handbook"
+      path: "site/cookbook"
       type: knosys
     values:
       repo: cookbook
+  - scope:
+      path: "project-nop-entropy"
+      type: knosys
+    values:
+      repo: nop-entropy
   # 页面
   - scope:
       path: ""

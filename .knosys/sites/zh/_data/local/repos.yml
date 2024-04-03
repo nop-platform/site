@@ -4,8 +4,8 @@ cookbook:
   toc:
     - slug: overview
     - slug: getting-started
-doc:
-  name: Nop Entropy 文档
+nop-entropy:
+  name: Nop Entropy 项目文档
   base: /projects/nop-entropy
   collection: docs
   toc:

@@ -1,5 +1,5 @@
 const { resolve: resolvePath } = require('path');
-const { isPlainObject } = require('@ntks/toolbox');
+const { isPlainObject, capitalize } = require('@ntks/toolbox');
 
 const { getConfig, readData, saveData, execute } = require('../helper');
 
@@ -26,14 +26,31 @@ function resolveDocToc(docs, docData) {
 
 function resolveRepoData(config) {
   const cookbook = readData(resolvePath(__dirname, './cookbook.yml'));
-  const siteDataDir = resolvePath(__dirname, '../..', `${config.source}/_data`)
-  const docs = readData(`${siteDataDir}/knosys/doc/docs.yml`);
+  const siteDataDir = resolvePath(__dirname, '../..', `${config.source}/_data`);
 
-  const docData = {};
-  const docRepo = { name: 'Nop Entropy 文档', base: '/projects/nop-entropy', collection: 'docs', toc: resolveDocToc(docs.structure, docData) };
+  const projectRepos = {};
 
-  saveData(`${siteDataDir}/local/repos.yml`, { cookbook, doc: docRepo });
-  saveData(`${siteDataDir}/knosys/docs.yml`, { items: docData });
+  Object.keys(config.data).forEach(srcKey => {
+    if (!srcKey.startsWith('project-')) {
+      return;
+    }
+
+    const docs = readData(`${siteDataDir}/knosys/${srcKey}/docs.yml`);
+    const docData = {};
+
+    const projectSlug = srcKey.replace(/^project\-/, '');
+    
+    projectRepos[projectSlug] = {
+      name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
+      base: `/projects/${projectSlug}`,
+      collection: 'docs',
+      toc: resolveDocToc(docs.structure, docData),
+    };
+
+    saveData(`${siteDataDir}/knosys/${projectSlug}.yml`, { items: docData });
+  });
+
+  saveData(`${siteDataDir}/local/repos.yml`, { cookbook, ...projectRepos });
 }
 
 module.exports = {

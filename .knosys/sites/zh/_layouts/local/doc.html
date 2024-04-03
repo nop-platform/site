@@ -26,6 +26,11 @@ js:
       </header>
       <div class="Article-content col-md-9">{{ content }}</div>
       <footer class="Article-footer col-md-3">
+        {% if page.repo != "cookbook" %}
+          <div class="Widget" data-url="{{ page.url }}" data-path="{{ page.path }}">
+            <div class="Widget-body"><a href="https://gitee.com/canonical-entropy/nop-entropy/edit/master/docs/{{ page.path || replace: '_knosys/project-nop-entropy/', '' }}" target="_blank" rel=" rel="external nofollow"">在 Gitee 上编辑文档内容</a></div>
+          </div>
+        {% endif %}
         {% include ksio/widgets/share.html %}
         {% include ksio/widgets/toc.html %}
       </footer>
