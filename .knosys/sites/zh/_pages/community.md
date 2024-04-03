@@ -29,6 +29,8 @@ title: 社区
   <figcaption>Nop 平台创作者微信</figcaption>
 </figure>
 
+另有 Discord 社区正在准备中！
+
 {% contentfor footer %}
   {% include ksio/widgets/toc.html %}
 {% endcontentfor %}

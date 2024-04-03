@@ -30,7 +30,7 @@ function resolveRepoData(config) {
   const docs = readData(`${siteDataDir}/knosys/doc/docs.yml`);
 
   const docData = {};
-  const docRepo = { name: 'Nop Entropy 文档', collection: 'projects/nop-entropy/docs', toc: resolveDocToc(docs.structure, docData) };
+  const docRepo = { name: 'Nop Entropy 文档', base: '/projects/nop-entropy', collection: 'docs', toc: resolveDocToc(docs.structure, docData) };
 
   saveData(`${siteDataDir}/local/repos.yml`, { cookbook, doc: docRepo });
   saveData(`${siteDataDir}/knosys/docs.yml`, { items: docData });

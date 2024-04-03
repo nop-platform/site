@@ -5,23 +5,40 @@
       {% assign _inc_collection = _inc_item.collection | default: include.collection %}
       {% if include.repo == "cookbook" %}
         {% assign _inc_docs = site.data.knosys.handbook[include.repo][_inc_collection].items %}
+        {% assign _inc_path_spec = "qiidb" %}
       {% elsif include.repo == "doc" %}
         {% assign _inc_docs = site.data.knosys.docs.items %}
+        {% assign _inc_path_spec = "file" %}
       {% endif %}
       {% assign _inc_base_part = include.base | default: "" %}
-      {% assign _inc_base_url = _inc_site_url | append: _inc_base_part %}
-      {% assign _inc_url_parts = page.id | replace: _inc_base_part, "" | split: "/" %}
       {% if _inc_item.items %}
         <span>{{ _inc_item.text }}</span>
         {% include local/components/doc-toc.html repo=include.repo items=_inc_item.items base=_inc_base_part collection=_inc_collection %}
-      {% elsif _inc_item.slug %}
-        {% if _inc_collection == "pages" %}
-          <a{% if _inc_item.slug == _inc_url_parts[1] and _inc_url_parts.size == 2 %} class="is-selected"{% endif %} href="{{_inc_base_url}}/{{ _inc_item.slug }}/">{{ _inc_item.text }}</a>
-        {% else %}
-          <a{% if _inc_item.slug == _inc_url_parts[2] %} class="is-selected"{% endif %} href="{{ _inc_base_url }}/{{ _inc_collection | append: '/' | append: _inc_item.slug }}/">{{ _inc_docs[_inc_item.slug].title }}</a>
-        {% endif %}
       {% else %}
-        <a{% if _inc_item == _inc_url_parts[2] %} class="is-selected"{% endif %} href="{{ _inc_base_url }}/{{ _inc_collection | append: '/' | append: _inc_item }}/">{{ _inc_docs[_inc_item].title }}</a>
+        {% assign _inc_base_url = _inc_site_url | append: _inc_base_part %}
+        {% assign _inc_relative_url = page.url | replace: _inc_base_part, "" %}
+        {% if _inc_path_spec == "qiidb" %}
+          {% assign _inc_url_parts = _inc_relative_url | split: "/" %}
+          {% if _inc_item.slug %}
+            {% if _inc_collection == "pages" %}
+              <a{% if _inc_item.slug == _inc_url_parts[1] and _inc_url_parts.size == 2 %} class="is-selected"{% endif %} href="{{ _inc_base_url }}/{{ _inc_item.slug }}/">{{ _inc_item.text }}</a>
+            {% else %}
+              <a{% if _inc_item.slug == _inc_url_parts[2] %} class="is-selected"{% endif %} href="{{ _inc_base_url }}/{{ _inc_collection | append: '/' | append: _inc_item.slug }}/">{{ _inc_docs[_inc_item.slug].title }}</a>
+            {% endif %}
+          {% else %}
+            <a{% if _inc_item == _inc_url_parts[2] %} class="is-selected"{% endif %} href="{{ _inc_base_url }}/{{ _inc_collection | append: '/' | append: _inc_item }}/">{{ _inc_docs[_inc_item].title }}</a>
+          {% endif %}
+        {% elsif _inc_path_spec == "file" %}
+          {% assign _inc_item_url = _inc_collection || prepend: "/" || append: "/" %}
+          {% assign _inc_doc_url = _inc_base_url || append: "/" || append: _inc_collection %}
+          {% if _inc_item.slug == "index" %}
+            {% assign _inc_doc_url = _inc_doc_url || append: "/" %}
+          {% else %}
+            {% assign _inc_item_url = _inc_item_url || append: _inc_item.slug || append: "/" %}
+            {% assign _inc_doc_url = _inc_doc_url || append: "/" || append: _inc_item.slug || append: "/" %}
+          {% endif %}
+          <a{% if _inc_relative_url == _inc_item_url %} class="is-selected"{% endif %} href="{{ _inc_doc_url }}">{{ _inc_item.text }}</a>
+        {% endif %}
       {% endif %}
     </li>
   {% endfor %}

@@ -16,6 +16,8 @@ Nop Entropy 是 Nop 平台的后端部分，前端部分可使用 [Nop Chaos](/p
 
 ## 新手入门
 
+请查看[本项目文档](./docs/)。
+
 ### 示例工程
 
 - [`nop-app-mall`](https://gitee.com/canonical-entropy/nop-app-mall){:rel="external nofollow"}{:target="_blank"}：演示 Nop 平台基本开发流程；

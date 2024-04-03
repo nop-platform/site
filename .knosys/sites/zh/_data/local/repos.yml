@@ -6,7 +6,8 @@ cookbook:
     - slug: getting-started
 doc:
   name: Nop Entropy 文档
-  collection: projects/nop-entropy/docs
+  base: /projects/nop-entropy
+  collection: docs
   toc:
     - text: 概览
       slug: index
@@ -14,19 +15,22 @@ doc:
       slug: core-code-guidance
     - text: Nop平台的定位和发展规划
       slug: why-nop
-    - slug: arch
+    - text: arch
+      slug: arch
       items:
         - text: 架构
           slug: arch
         - text: 模块依赖关系
           slug: arch/module-dependency
-    - slug: compare
+    - text: compare
+      slug: compare
       items:
         - text: 从可逆计算看开源低代码平台Skyve的设计
           slug: compare/nop-vs-skyve
         - text: Nop平台与SpringCloud的功能对比
           slug: compare/nop-vs-springcloud
-    - slug: dev-guide
+    - text: dev-guide
+      slug: dev-guide
       items:
         - text: 开发指南
           slug: dev-guide
@@ -48,8 +52,10 @@ doc:
           slug: dev-guide/dict
         - text: 统一响应格式
           slug: dev-guide/error-code
-        - slug: dev-guide/i18n
-        - slug: dev-guide/intro
+        - text: dev-guide/i18n.md
+          slug: dev-guide/i18n
+        - text: dev-guide/intro.md
+          slug: dev-guide/intro
         - text: 3.1 XDef元模型定义
           slug: dev-guide/ioc
         - text: 日志配置
@@ -58,7 +64,8 @@ doc:
           slug: dev-guide/spring
         - text: 租户配置
           slug: dev-guide/tenant
-        - slug: dev-guide/auth
+        - text: dev-guide/auth
+          slug: dev-guide/auth
           items:
             - text: 权限
               slug: dev-guide/auth/auth
@@ -70,27 +77,34 @@ doc:
               slug: dev-guide/auth/service-auth
             - text: 启用SSO支持
               slug: dev-guide/auth/sso
-        - slug: dev-guide/batch
+        - text: dev-guide/batch
+          slug: dev-guide/batch
           items:
             - text: SpringBatch存在的设计问题
               slug: dev-guide/batch/batch-design
-            - slug: dev-guide/batch/batch-gen
-            - slug: dev-guide/batch/batch-task
-        - slug: dev-guide/biz
+            - text: dev-guide/batch/batch-gen.md
+              slug: dev-guide/batch/batch-gen
+            - text: dev-guide/batch/batch-task.md
+              slug: dev-guide/batch/batch-task
+        - text: dev-guide/biz
+          slug: dev-guide/biz
           items:
             - text: 编码规则
               slug: dev-guide/biz/coderule
             - text: CrudBizModel中的自动验证
               slug: dev-guide/biz/validate
-        - slug: dev-guide/command
+        - text: dev-guide/command
+          slug: dev-guide/command
           items:
             - text: 命令行程序支持
               slug: dev-guide/command/command
-        - slug: dev-guide/delta
+        - text: dev-guide/delta
+          slug: dev-guide/delta
           items:
             - text: 如何在不修改基础产品源码的情况下实现定制化开发
               slug: dev-guide/delta/delta-customization
-        - slug: dev-guide/graphql
+        - text: dev-guide/graphql
+          slug: dev-guide/graphql
           items:
             - text: connection配置
               slug: dev-guide/graphql/connection
@@ -106,23 +120,29 @@ doc:
               slug: dev-guide/graphql/upload
             - text: Biz模型
               slug: dev-guide/graphql/xbiz
-        - slug: dev-guide/ide
+        - text: dev-guide/ide
+          slug: dev-guide/ide
           items:
             - text: 安装JDK
               slug: dev-guide/ide/idea
             - text: 关联Gradle工程
               slug: dev-guide/ide/plugin-dev
-        - slug: dev-guide/ioc
+        - text: dev-guide/ioc
+          slug: dev-guide/ioc
           items:
             - text: 编译期代码生成
               slug: dev-guide/ioc/aop
-        - slug: dev-guide/job
+        - text: dev-guide/job
+          slug: dev-guide/job
           items:
             - text: 分布式任务调度
               slug: dev-guide/job/job-design
-            - slug: dev-guide/job/job
-            - slug: dev-guide/job/trigger
-        - slug: dev-guide/microservice
+            - text: dev-guide/job/job.md
+              slug: dev-guide/job/job
+            - text: dev-guide/job/trigger.md
+              slug: dev-guide/job/trigger
+        - text: dev-guide/microservice
+          slug: dev-guide/microservice
           items:
             - text: Feign集成
               slug: dev-guide/microservice/feign
@@ -134,7 +154,8 @@ doc:
               slug: dev-guide/microservice/rpc
             - text: 配置项
               slug: dev-guide/microservice/web-filter
-        - slug: dev-guide/model
+        - text: dev-guide/model
+          slug: dev-guide/model
           items:
             - text: Excel模型
               slug: dev-guide/model
@@ -148,7 +169,8 @@ doc:
               slug: dev-guide/model/excel-model
             - text: 1. 解析Excel文件得到Workbook对象
               slug: dev-guide/model/excel-xlsx
-        - slug: dev-guide/nocode
+        - text: dev-guide/nocode
+          slug: dev-guide/nocode
           items:
             - text: '在线配置数据模型和服务模型: [dyn-model.md](dyn-model.md)'
               slug: dev-guide/nocode
@@ -156,7 +178,8 @@ doc:
               slug: dev-guide/nocode/dyn-model
             - text: 内置工作流支持的动态实体
               slug: dev-guide/nocode/dynamic-orm
-        - slug: dev-guide/orm
+        - text: dev-guide/orm
+          slug: dev-guide/orm
           items:
             - text: '[数据库方言](dialect.md)'
               slug: dev-guide/orm
@@ -168,7 +191,8 @@ doc:
               slug: dev-guide/orm/data-change-log
             - text: Dialect的继承和定制
               slug: dev-guide/orm/dialect
-            - slug: dev-guide/orm/dql
+            - text: dev-guide/orm/dql.md
+              slug: dev-guide/orm/dql
             - text: EQL对象查询语言
               slug: dev-guide/orm/eql
             - text: 如何在不改表的情况下为实体增加扩展字段
@@ -197,7 +221,8 @@ doc:
               slug: dev-guide/orm/to-one-relation
             - text: 事务模板
               slug: dev-guide/orm/transaction
-        - slug: dev-guide/recipe
+        - text: dev-guide/recipe
+          slug: dev-guide/recipe
           items:
             - text: '1. [在后台增加字段](add-field.md)'
               slug: dev-guide/recipe
@@ -213,7 +238,8 @@ doc:
               slug: dev-guide/recipe/tree-entity
             - text: 1. 解析XML文本
               slug: dev-guide/recipe/xml-helper
-        - slug: dev-guide/report
+        - text: dev-guide/report
+          slug: dev-guide/report
           items:
             - text: '[Excel报表](xpt-report.md)'
               slug: dev-guide/report
@@ -231,7 +257,8 @@ doc:
               slug: dev-guide/report/word-template
             - text: 报表引擎
               slug: dev-guide/report/xpt-report
-            - slug: dev-guide/report/examples
+            - text: dev-guide/report/examples
+              slug: dev-guide/report/examples
               items:
                 - text: 基础报表示例
                   slug: dev-guide/report/examples/base
@@ -239,25 +266,30 @@ doc:
                   slug: dev-guide/report/examples/dynamic-col
                 - text: 套打
                   slug: dev-guide/report/examples/form-printing
-        - slug: dev-guide/rule
+        - text: dev-guide/rule
+          slug: dev-guide/rule
           items:
             - text: 采用Excel作为可视化设计器的规则引擎 NopRule
               slug: dev-guide/rule/rule
             - text: 验证模型
               slug: dev-guide/rule/validator
-        - slug: dev-guide/security
+        - text: dev-guide/security
+          slug: dev-guide/security
           items:
             - text: Nop平台这么灵活，是不是很容易出现安全性问题？
               slug: dev-guide/security/security-design
-        - slug: dev-guide/sonar
+        - text: dev-guide/sonar
+          slug: dev-guide/sonar
           items:
             - text: 配置
               slug: dev-guide/sonar/sonarqube
-        - slug: dev-guide/spring
+        - text: dev-guide/spring
+          slug: dev-guide/spring
           items:
             - text: 如何为Spring和Mybatis增加可逆计算支持
               slug: dev-guide/spring/spring-delta
-        - slug: dev-guide/vfs
+        - text: dev-guide/vfs
+          slug: dev-guide/vfs
           items:
             - text: DSL模型文件加载
               slug: dev-guide/vfs/model-loader
@@ -265,7 +297,8 @@ doc:
               slug: dev-guide/vfs/std-resource-path
             - text: 虚拟文件系统
               slug: dev-guide/vfs/vfs
-        - slug: dev-guide/workflow
+        - text: dev-guide/workflow
+          slug: dev-guide/workflow
           items:
             - text: 类钉钉工作流
               slug: dev-guide/workflow/flow-builder
@@ -277,7 +310,8 @@ doc:
               slug: dev-guide/workflow/task-queue
             - text: 堆栈式任务流
               slug: dev-guide/workflow/task
-        - slug: dev-guide/xlang
+        - text: dev-guide/xlang
+          slug: dev-guide/xlang
           items:
             - text: XLang
               slug: dev-guide/xlang
@@ -301,13 +335,16 @@ doc:
               slug: dev-guide/xlang/xlang
             - text: 元数据
               slug: dev-guide/xlang/xmeta
-            - slug: dev-guide/xlang/xpath
+            - text: dev-guide/xlang/xpath.md
+              slug: dev-guide/xlang/xpath
             - text: 说明
               slug: dev-guide/xlang/xpl
             - text: XScript
               slug: dev-guide/xlang/xscript
-            - slug: dev-guide/xlang/xtransform
-        - slug: dev-guide/xui
+            - text: dev-guide/xlang/xtransform.md
+              slug: dev-guide/xlang/xtransform
+        - text: dev-guide/xui
+          slug: dev-guide/xui
           items:
             - text: XUI
               slug: dev-guide/xui
@@ -329,13 +366,15 @@ doc:
               slug: dev-guide/xui/xpage
             - text: XView视图模型
               slug: dev-guide/xui/xview
-    - slug: faq
+    - text: faq
+      slug: faq
       items:
         - text: 调试错误
           slug: faq/debug-errors
         - text: 常见问题
           slug: faq/faq
-    - slug: frontend
+    - text: frontend
+      slug: frontend
       items:
         - text: 前端架构设计
           slug: frontend/frontend-design
@@ -345,33 +384,48 @@ doc:
           slug: frontend/react
         - text: Vite
           slug: frontend/vite
-    - slug: gpt
+    - text: gpt
+      slug: gpt
       items:
-        - slug: gpt/copilot-prompts
-        - slug: gpt/create-module
-        - slug: gpt/create-workflow
-        - slug: gpt/read-doc
-        - slug: gpt/update-table
-        - slug: gpt/alpha-codium
+        - text: gpt/copilot-prompts.md
+          slug: gpt/copilot-prompts
+        - text: gpt/create-module.md
+          slug: gpt/create-module
+        - text: gpt/create-workflow.md
+          slug: gpt/create-workflow
+        - text: gpt/read-doc.md
+          slug: gpt/read-doc
+        - text: gpt/update-table.md
+          slug: gpt/update-table
+        - text: gpt/alpha-codium
+          slug: gpt/alpha-codium
           items:
-            - slug: gpt/alpha-codium/READM
-        - slug: gpt/gpt-pilot
+            - text: gpt/alpha-codium/READM.md
+              slug: gpt/alpha-codium/READM
+        - text: gpt/gpt-pilot
+          slug: gpt/gpt-pilot
           items:
-            - slug: gpt/gpt-pilot/READM
-        - slug: gpt/reference
+            - text: gpt/gpt-pilot/READM.md
+              slug: gpt/gpt-pilot/READM
+        - text: gpt/reference
+          slug: gpt/reference
           items:
-            - slug: gpt/reference/tutor
-    - slug: intro
+            - text: gpt/reference/tutor.md
+              slug: gpt/reference/tutor
+    - text: intro
+      slug: intro
       items:
         - text: 介绍
           slug: intro/intro
-    - slug: performance
+    - text: performance
+      slug: performance
       items:
         - text: 性能优化方法论
           slug: performance/optimize-theory
         - text: 性能优化工具
           slug: performance/optimize-tool
-    - slug: theory
+    - text: theory
+      slug: theory
       items:
         - text: '知乎专栏: [可逆计算](https://www.zhihu.com/column/reversible-computation)'
           slug: theory
@@ -397,7 +451,8 @@ doc:
           slug: theory/framework-agnostic
         - text: 通用的Delta差量化机制
           slug: theory/generic-delta-composition
-        - slug: theory/good_design
+        - text: theory/good_design.md
+          slug: theory/good_design
         - text: 为什么在数学的意义上GraphQL严格的优于REST？
           slug: theory/graphql-vs-rest
         - text: 1. 代码生成器是低码吗？
@@ -408,7 +463,7 @@ doc:
           slug: theory/lowcode-orm-1
         - text: 低代码平台需要什么样的ORM引擎?(2)
           slug: theory/lowcode-orm-2
-        - text: 从零开始编写一款高度可扩展的逻辑编排引擎
+        - text: 从零开始编写的下一代逻辑编排引擎
           slug: theory/lowcode-task-flow
         - text: 可逆计算理论
           slug: theory/methodology-of-reversible-computation
@@ -444,19 +499,22 @@ doc:
           slug: theory/xdsl-design
         - text: XML、JSON和函数AST的等价性
           slug: theory/xml-json-equivalence
-        - slug: theory/amis
+        - text: theory/amis
+          slug: theory/amis
           items:
             - text: 再谈百度AMIS框架和声明式编程
               slug: theory/amis/amis-and-declarative-programming
             - text: 为什么说百度AMIS框架是一个优秀的设计
               slug: theory/amis/why-amis-is-good
-    - slug: tutorial
+    - text: tutorial
+      slug: tutorial
       items:
         - text: 开发示例
           slug: tutorial/tutorial
         - text: Development Tutorial
           slug: tutorial/tutorial_en
-        - slug: tutorial/simple
+        - text: tutorial/simple
+          slug: tutorial/simple
           items:
             - text: Nop入门：极简服务层开发
               slug: tutorial/simple/1-simple-service
@@ -464,20 +522,26 @@ doc:
               slug: tutorial/simple/2-simple-dao
             - text: 极简前端页面开发
               slug: tutorial/simple/3-simple-page
-    - slug: user-guide
+    - text: user-guide
+      slug: user-guide
       items:
         - text: 用户指南
           slug: user-guide
-        - slug: user-guide/batch
+        - text: user-guide/batch.md
+          slug: user-guide/batch
         - text: 采用Excel作为设计器的开源中国式报表引擎：NopReport
           slug: user-guide/report
-        - slug: user-guide/rule
-        - slug: user-guide/workflow
-        - slug: user-guide/idea
+        - text: user-guide/rule.md
+          slug: user-guide/rule
+        - text: user-guide/workflow.md
+          slug: user-guide/workflow
+        - text: user-guide/idea
+          slug: user-guide/idea
           items:
             - text: XLang DSL Plugin
               slug: user-guide/idea/idea-plugin
-        - slug: user-guide/monitor
+        - text: user-guide/monitor
+          slug: user-guide/monitor
           items:
             - text: 运行时监控
               slug: user-guide/monitor/grafana
