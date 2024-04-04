@@ -1,8 +1,7 @@
 const { resolve: resolvePath } = require('path');
-const { readFileSync } = require('fs');
 
 const rootPath = resolvePath(__dirname, '..');
-const ksdk = require(resolvePath(rootPath, JSON.parse(readFileSync(resolvePath(rootPath, '.knosys/config.json'), 'utf8').toString().trim()).$path));
+const ksdk = { ...require('@knosys/sdk'), ...require('ksio') };
 
 function resolveSiteSrcDir(site) {
   return ksdk.getConfig(`site.${site}.source`) || `./.knosys/sites/${site}`;
