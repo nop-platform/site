@@ -2,8 +2,13 @@
   "command": "./scripts",
   "site": {
     "default": {
+      "generator": "hexo",
+      "data": {
+        "project-nop-entropy": "../nop-entropy/docs"
+      }
+    },
+    "zh": {
       "alias": "nop-zh",
-      "source": "./.knosys/sites/zh",
       "data": {
         "site": "./docs",
         "project-nop-entropy": "../nop-entropy/docs"
@@ -15,7 +20,6 @@
     },
     "en": {
       "alias": "nop-en",
-      "source": "./.knosys/sites/en",
       "git": {
         "url": "https://github.com/nop-platform/nop-platform.github.io.git",
         "branch": "gh-pages"

@@ -1,0 +1,23 @@
+meta:
+  url: https://nop-platform.gitee.io
+brand:
+  text: Nop
+  color: "#0871ab"
+copyright:
+  owner:
+    text: Nop 社区
+    url: https://nop-platform.gitee.io
+  period:
+    start: 2024
+  provider: false
+header:
+  navbar:
+    placement: right
+social:
+  share: false
+
+# copied from `hexo-theme-lime`
+node_sass:
+  outputStyle: nested
+  precision: 5
+  sourceComments: false

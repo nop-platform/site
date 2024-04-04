@@ -5,17 +5,33 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "copy": "node scripts site copy",
+    "copy": "node scripts copy",
     "build": "node scripts gen",
     "clean": "node scripts clean",
-    "start": "node scripts site serve",
+    "start": "node scripts serve",
     "predeploy": "npm run clean",
     "deploy": "node scripts site deploy"
   },
   "author": "Ourai L. <ourairyu@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
+  "hexo": {
+    "version": "6.3.0"
+  },
+  "dependencies": {
+    "hexo": "^6.3.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^3.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-coffeescript": "^0.2.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^6.0.0",
+    "hexo-renderer-sass": "^0.4.0",
+    "hexo-renderer-stylus": "^2.1.0",
+    "hexo-server": "^3.0.0"
+  },
   "devDependencies": {
     "@ntks/toolbox": "0.0.6",
-    "js-yaml": "^3.14.0"
+    "hexo-theme-lime": "0.0.0-alpha.1"
   }
 }

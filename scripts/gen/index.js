@@ -1,7 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const { isPlainObject, capitalize } = require('@ntks/toolbox');
 
-const { getConfig, readData, saveData, execute } = require('../helper');
+const { getConfig, ensureDirExists, readData, saveData, execute } = require('../helper');
 
 function resolveDocToc(docs, docData) {
   return docs.map(({ title, uri, children }) => {
@@ -24,9 +24,10 @@ function resolveDocToc(docs, docData) {
   });
 }
 
-function resolveRepoData(config) {
+function resolveRepoData(config, site) {
   const cookbook = readData(resolvePath(__dirname, './cookbook.yml'));
-  const siteDataDir = resolvePath(__dirname, '../..', `${config.source}/_data`);
+  const srcDir = config.source || `./.knosys/sites/${site}`;
+  const siteDataDir = resolvePath(__dirname, '../..', `${srcDir}${config.generator === 'hexo' ? '/source' : ''}/_data`);
 
   const projectRepos = {};
 
@@ -39,7 +40,7 @@ function resolveRepoData(config) {
     const docData = {};
 
     const projectSlug = srcKey.replace(/^project\-/, '');
-    
+
     projectRepos[projectSlug] = {
       name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
       base: `/projects/${projectSlug}`,
@@ -50,6 +51,7 @@ function resolveRepoData(config) {
     saveData(`${siteDataDir}/knosys/${projectSlug}.yml`, { items: docData });
   });
 
+  ensureDirExists(`${siteDataDir}/local`);
   saveData(`${siteDataDir}/local/repos.yml`, { cookbook, ...projectRepos });
 }
 
@@ -75,7 +77,7 @@ module.exports = {
     keys.forEach(key => execute('generate', site, key));
 
     if (site === 'default') {
-      setTimeout(() => resolveRepoData(siteConfig));
+      setTimeout(() => resolveRepoData(siteConfig, site));
     }
   },
 };
