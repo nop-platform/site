@@ -1,7 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const { isPlainObject, capitalize } = require('@ntks/toolbox');
 
-const { getConfig, ensureDirExists, readData, saveData, execute } = require('../helper');
+const { getConfig, ensureDirExists, readData, saveData, execute, resolveSiteSrcDir } = require('../helper');
 
 function resolveDocToc(docs, docData) {
   return docs.map(({ title, uri, children }) => {
@@ -26,8 +26,7 @@ function resolveDocToc(docs, docData) {
 
 function resolveRepoData(config, site) {
   const cookbook = readData(resolvePath(__dirname, './cookbook.yml'));
-  const srcDir = config.source || `./.knosys/sites/${site}`;
-  const siteDataDir = resolvePath(__dirname, '../..', `${srcDir}${config.generator === 'hexo' ? '/source' : ''}/_data`);
+  const siteDataDir = resolvePath(__dirname, '../..', `${resolveSiteSrcDir(site)}${config.generator === 'hexo' ? '/source' : ''}/_data`);
 
   const projectRepos = {};
 

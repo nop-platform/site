@@ -15,14 +15,14 @@
       },
       "git": {
         "url": "git@gitee.com:nop-platform/nop-platform.git",
-        "branch": "ge-pages"
+        "branch": "master"
       }
     },
     "en": {
       "alias": "nop-en",
       "git": {
         "url": "https://github.com/nop-platform/nop-platform.github.io.git",
-        "branch": "gh-pages"
+        "branch": "main"
       }
     }
   }

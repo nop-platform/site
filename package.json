@@ -9,8 +9,7 @@
     "build": "node scripts gen",
     "clean": "node scripts clean",
     "start": "node scripts serve",
-    "predeploy": "npm run clean",
-    "deploy": "node scripts site deploy"
+    "release": "node scripts release"
   },
   "author": "Ourai L. <ourairyu@gmail.com>",
   "license": "MIT",
