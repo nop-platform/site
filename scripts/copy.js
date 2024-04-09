@@ -1,6 +1,8 @@
 const { resolve: resolvePath } = require('path');
+const { ensureDirExists, copyFileDeeply } = require('@knosys/sdk');
+const { execute } = require('ksio');
 
-const { getConfig, ensureDirExists, copyFileDeeply, execute, getNopThemeDirPath } = require('./helper');
+const { getNopThemeDirPath } = require('./helper');
 
 const rootPath = resolvePath(__dirname, '..');
 

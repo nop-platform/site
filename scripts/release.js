@@ -1,8 +1,10 @@
 const { resolve: resolvePath } = require('path');
 const { execSync } = require('child_process');
 const { pick } = require('@ntks/toolbox');
+const { ensureDirExists, copyFileDeeply, cp, saveData } = require('@knosys/sdk');
+const { execute } = require('ksio');
 
-const { ensureDirExists, copyFileDeeply, cp, saveData, execute, getNopThemeDirPath } = require('./helper');
+const { getNopThemeDirPath } = require('./helper');
 
 const rootPath = resolvePath(__dirname, '..');
 const pkgName = '@nop-community/hexo-theme-site';
@@ -28,11 +30,12 @@ function copyThemeFiles() {
   saveData(`${themeDistPath}/package.json`, JSON.stringify({
     name: pkgName,
     description: 'Theme for Nop project docs',
-    main: 'package.json',
+    main: 'index.js',
     keywords: ['nop', 'nop-platform', 'nop-community', 'knosys', 'ksio', 'hexo', 'theme'],
     ...pkgFields,
   }, null, 2));
   copyMetaFiles();
+  cp(`${rootPath}/scripts/helper/nop-project.js`, `${themeDistPath}/index.js`);
 }
 
 module.exports = {

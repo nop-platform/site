@@ -1,5 +1,5 @@
 const { resolve: resolvePath } = require('path');
-const { getConfig, rm } = require('./helper');
+const { getConfig, rm } = require('@knosys/sdk');
 
 const rootPath = resolvePath(__dirname, '..');
 const patterns = [
