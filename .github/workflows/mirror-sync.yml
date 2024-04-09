@@ -17,6 +17,6 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token:  ${{ secrets.GITEE_TOKEN }}
           account_type: org
-          static_list: "site"
+          static_list: site
           force_update: true
           debug: true

@@ -1,9 +1,14 @@
 const { resolve: resolvePath } = require('path');
-const { isPlainObject, capitalize } = require('@ntks/toolbox');
+const { existsSync } = require('fs');
+const { isArray, isPlainObject, capitalize } = require('@ntks/toolbox');
 
-const { getConfig, ensureDirExists, readData, saveData, execute, resolveSiteSrcDir } = require('../helper');
+const { resolveRootPath, getConfig, ensureDirExists, readData, saveData, normalizeFrontMatter, execute, resolveSiteSrcDir } = require('../helper');
 
-function resolveDocToc(docs, docData) {
+function resolveSlug(uri) {
+  return `${uri.replace(/(?:\/)?(index)?\.md$/, '') || 'index'}`;
+}
+
+function resolveDefaultDocToc(docs, docData) {
   return docs.map(({ title, uri, children }) => {
     const resolved = {};
 
@@ -11,32 +16,94 @@ function resolveDocToc(docs, docData) {
       resolved.text = title;
     }
 
-    const slug = `${uri.replace(/(?:\/)?(index)?\.md$/, '') || 'index'}`;
+    const slug = resolveSlug(uri);
 
     resolved.slug = slug;
     docData[slug] = { title: title || '', slug };
 
     if (children) {
-      resolved.items = resolveDocToc(children, docData);
+      resolved.items = resolveDefaultDocToc(children, docData);
     }
 
     return resolved;
   });
 }
 
+function resolveCustomizedDocToc(srcPath, items, parentUri, docData) {
+  const resolved = [];
+
+  items.forEach(({ text, uri, children }) => {
+    const item = {};
+
+    if (text) {
+      item.text = text;
+    }
+
+    if (isArray(children)) {
+      item.items = resolveCustomizedDocToc(srcPath, children, uri, docData);
+    } else {
+      if (uri) {
+        let docFile;
+
+        if (uri.startsWith('./')) {
+          docFile = uri;
+        } else {
+          docFile = `./${parentUri ? [parentUri.replace(/^\\\./, ''), uri].join('/') : uri}`;
+        }
+
+        const docPath = resolvePath(srcPath, docFile);
+
+        if (!existsSync(docPath)) {
+          return;
+        }
+
+        if (!item.text) {
+          const content = readData(docPath);
+
+          if (content) {
+            const normalized = normalizeFrontMatter(content);
+
+            if (normalized.data && normalized.data.title) {
+              item.text = normalized.data.title;
+            }
+          }
+        }
+
+        item.slug = resolveSlug(docFile.slice(2));
+        docData[item.slug] = { title: item.text || '', slug: item.slug };
+      }
+    }
+
+    resolved.push(item);
+  });
+
+  return resolved;
+}
+
+function resolveDocToc(srcPath, docs, docData) {
+  const customizedTocPath = `${srcPath}/.meta/toc.yml`;
+
+  if (existsSync(customizedTocPath)) {
+    return resolveCustomizedDocToc(srcPath, readData(customizedTocPath), '', docData);
+  }
+
+  return resolveDefaultDocToc(docs.structure, docData);
+}
+
 function resolveRepoData(config, site) {
+  const rootPath = resolveRootPath();
   const cookbook = readData(resolvePath(__dirname, './cookbook.yml'));
-  const siteDataDir = resolvePath(__dirname, '../..', `${resolveSiteSrcDir(site)}${config.generator === 'hexo' ? '/source' : ''}/_data`);
+  const siteDataDir = resolvePath(rootPath, `${resolveSiteSrcDir(site)}${config.generator === 'hexo' ? '/source' : ''}/_data`);
 
   const projectRepos = {};
 
-  Object.keys(config.data).forEach(srcKey => {
+  Object.entries(config.data).forEach(([srcKey, srcDir]) => {
     if (!srcKey.startsWith('project-')) {
       return;
     }
 
-    const docs = readData(`${siteDataDir}/knosys/${srcKey}/docs.yml`);
     const docData = {};
+    const toc = resolveDocToc(resolvePath(rootPath, srcDir), readData(`${siteDataDir}/knosys/${srcKey}/docs.yml`), docData);
 
     const projectSlug = srcKey.replace(/^project\-/, '');
 
@@ -44,7 +111,7 @@ function resolveRepoData(config, site) {
       name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
       base: `/projects/${projectSlug}`,
       collection: 'docs',
-      toc: resolveDocToc(docs.structure, docData),
+      toc,
     };
 
     saveData(`${siteDataDir}/knosys/${projectSlug}.yml`, { items: docData });
@@ -75,7 +142,7 @@ module.exports = {
 
     keys.forEach(key => execute('generate', site, key));
 
-    if (site === 'default') {
+    if (siteConfig.generator === 'hexo') {
       setTimeout(() => resolveRepoData(siteConfig, site));
     }
   },

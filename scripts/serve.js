@@ -1,13 +1,12 @@
 const { resolve: resolvePath } = require('path');
 const { pick } = require('@ntks/toolbox');
 
-const { getConfig, readData, saveData, execute, resolveSiteSrcDir } = require('./helper');
-
-const rootPath = resolvePath(__dirname, '..');
+const { resolveRootPath, getConfig, readData, saveData, execute, resolveSiteSrcDir } = require('./helper');
 
 module.exports = {
   execute: (site = 'default') => {
     if (getConfig(`site.${site}.generator`) === 'hexo') {
+      const rootPath = resolveRootPath();
       const pkg = readData(`${rootPath}/package.json`);
       const siteSrcPath = resolvePath(rootPath, resolveSiteSrcDir(site));
 
