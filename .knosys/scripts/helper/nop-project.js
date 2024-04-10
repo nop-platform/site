@@ -118,8 +118,8 @@ function resolveRepoData(site, config, existsRepos = {}) {
       name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
       base: `/projects/${projectSlug}`,
       collection: 'docs',
-      customized,
       toc,
+      customized,
     };
 
     saveData(`${siteDataDir}/knosys/${projectSlug}.yml`, { items: docData });

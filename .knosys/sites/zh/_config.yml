@@ -164,7 +164,7 @@ ksio:
       url: https://nop-platform.gitee.io
     period:
       start: 2024
-    provider: true
+    provider: false
   header:
     navs:
       - text: 学习

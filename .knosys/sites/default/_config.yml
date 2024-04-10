@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Nop Project Docs
-subtitle: 用于社区项目本地预览网站生成效果的主题。
-description:
-keywords:
+title: Nop
+subtitle: 基于可逆计算原理从零开始构建的新一代低代码平台
+description: Nop Platform 2.0 是基于可逆计算原理从零开始构建的新一代低代码平台，它致力于克服低代码平台无法摆脱穷举法的困境，从理论层面超越组件技术，有效的解决粗粒度软件复用的问题。
+keywords: Nop,Nop平台,Nop 平台,Nop Platform,Nop社区,Nop 社区,Nop Community,可逆计算,软件构造理论,低代码,lowcode,low-code,low code,低代码平台,lcdp,软件工程
 author: Ourai L.
 language: zh-CN
 timezone: Asia/Shanghai
@@ -98,6 +98,43 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: nop-project
+theme_config:
+  brand:
+    # icon: "logo"
+  header:
+    navs:
+      - text: 学习
+        children:
+          - text: 指南
+            url: /projects/nop-entropy/docs/
+          - text: 文章
+            url: https://www.zhihu.com/column/reversible-computation
+          - text: 视频
+            url: https://space.bilibili.com/3493261219990250
+      - text: 项目
+        children:
+          - text: Nop Entropy
+            url: /projects/nop-entropy/
+          - text: Nop Chaos
+            url: /projects/nop-chaos/
+      - text: 关于
+        children:
+          - text: 社区
+            url: /community/
+          - text: 团队
+            url: /team/
+          - text: Gitee 组织
+            url: https://gitee.com/nop-platform
+      - text: English
+        url: https://nop-platform.github.io
+    navbar:
+      placement: right
+  footer:
+    links:
+      - text: 指南
+        url: /projects/nop-entropy/docs/
+      - text: 社区
+        url: /community/
 
 ksio:
   defaults:

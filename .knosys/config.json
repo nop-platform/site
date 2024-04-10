@@ -10,7 +10,7 @@
     "zh": {
       "alias": "nop-zh",
       "data": {
-        "site": "./docs",
+        "site": "./data",
         "project-nop-entropy": "../nop-entropy/docs"
       },
       "git": {
