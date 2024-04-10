@@ -9,10 +9,7 @@
       <% const _inc_docs = (site.data[`knosys/${repo}`] || {}).items %>
       <% const _inc_base_part = base || '' %>
       <% const _inc_base_url = `${_inc_site_url}${_inc_base_part}` %>
-      <% if (_inc_item.items) { %>
-        <span><%= _inc_item.text %></span>
-        <%- partial('_nop/components/doc-toc', { repo, items: _inc_item.items, base: _inc_base_part, collection: _inc_collection }) %>
-      <% } else { %>
+      <% if (customized ? _inc_item.slug !== undefined : !_inc_item.items) { %>
         <% const _inc_relative_url = page.path.replace('/index.html', '/').replace(base ? new RegExp(`^${_inc_base_part}`) : '', '') %>
         <% let _inc_item_url = `/${_inc_collection}/` %>
         <% let _inc_doc_url = `${_inc_base_url}/${_inc_collection}` %>
@@ -23,6 +20,11 @@
           <% _inc_doc_url = `${_inc_doc_url}/${_inc_item.slug}/` %>
         <% } %>
         <a data-re="<%= _inc_relative_url %>" data-uuu="<%= _inc_item_url %>"<% if (_inc_relative_url === _inc_item_url) { %> class="is-selected"<% } %> href="<%= _inc_doc_url %>"><%= _inc_item.text %></a>
+      <% } else { %>
+        <span><%= _inc_item.text %></span>
+      <% } %>
+      <% if (_inc_item.items) { %>
+        <%- partial('_nop/components/doc-toc', { repo, items: _inc_item.items, base: _inc_base_part, collection: _inc_collection, customized }) %>
       <% } %>
     </li>
   <% }) %>
