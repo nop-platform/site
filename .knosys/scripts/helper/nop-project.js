@@ -1,7 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const { existsSync } = require('fs');
 const { isArray, isPlainObject, capitalize } = require('@ntks/toolbox');
-const { resolveRootPath, getConfig, ensureDirExists, readData, saveData, normalizeFrontMatter } = require('@knosys/sdk');
+const { resolveRootPath, getConfig, isDirectory, ensureDirExists, readData, saveData, normalizeFrontMatter } = require('@knosys/sdk');
 const { execute } = require('ksio');
 
 function resolveSiteSrcDir(site) {
@@ -43,53 +43,49 @@ function resolveCustomizedDocToc(srcPath, items, parentUri, docData) {
       item.text = text;
     }
 
-    if (isArray(children)) {
-      item.items = resolveCustomizedDocToc(srcPath, children, uri, docData);
-    } else if (uri) {
+    if (uri) {
       let docFile;
 
       if (uri.startsWith('./')) {
         docFile = uri;
       } else {
-        docFile = `./${parentUri ? [parentUri.replace(/^\\\./, ''), uri].join('/') : uri}`;
+        docFile = `./${parentUri && !uri.endsWith('.md') ? [parentUri.replace(/^\\\./, ''), uri].join('/') : uri}`;
       }
 
       const docPath = resolvePath(srcPath, docFile);
 
-      if (!existsSync(docPath)) {
-        return;
-      }
+      if (existsSync(docPath) && !isDirectory(docPath)) {
+        const slug = resolveSlug(docFile.slice(2));
 
-      if (!item.text) {
-        const content = readData(docPath);
+        if (!item.text) {
+          const content = readData(docPath);
 
-        if (content) {
-          const normalized = normalizeFrontMatter(content);
+          if (content) {
+            const normalized = normalizeFrontMatter(content);
 
-          if (normalized.data && normalized.data.title) {
-            item.text = normalized.data.title;
+            if (normalized.data && normalized.data.title) {
+              item.text = normalized.data.title;
+            }
           }
         }
-      }
 
-      item.slug = resolveSlug(docFile.slice(2));
-      docData[item.slug] = { title: item.text || '', slug: item.slug };
+        item.slug = slug;
+        docData[slug] = { title: item.text || '', slug };
+      } else {
+        const errText = `[NOP_ERR: \`${uri}\` 不存在或不是文件 ]`;
+
+        item.text = item.text ? `${item.text} ${errText}` : errText;
+      }
+    }
+
+    if (isArray(children)) {
+      item.items = resolveCustomizedDocToc(srcPath, children, uri, docData);
     }
 
     resolved.push(item);
   });
 
   return resolved;
-}
-
-function resolveDocToc(srcPath, docs, docData) {
-  const customizedTocPath = `${srcPath}/.meta/toc.yml`;
-
-  if (existsSync(customizedTocPath)) {
-    return resolveCustomizedDocToc(srcPath, readData(customizedTocPath), '', docData);
-  }
-
-  return resolveDefaultDocToc(docs.structure, docData);
 }
 
 function resolveRepoData(site, config, existsRepos = {}) {
@@ -104,7 +100,17 @@ function resolveRepoData(site, config, existsRepos = {}) {
     }
 
     const docData = {};
-    const toc = resolveDocToc(resolvePath(rootPath, srcDir), readData(`${siteDataDir}/knosys/${srcKey}/docs.yml`), docData);
+    const srcPath = resolvePath(rootPath, srcDir);
+    const customizedTocPath = `${srcPath}/.meta/toc.yml`;
+    const customized = existsSync(customizedTocPath);
+
+    let toc;
+
+    if (customized) {
+      toc = resolveCustomizedDocToc(srcPath, readData(customizedTocPath), '', docData);
+    } else {
+      toc = resolveDefaultDocToc(readData(`${siteDataDir}/knosys/${srcKey}/docs.yml`).structure, docData);
+    }
 
     const projectSlug = srcKey.replace(/^project\-/, '');
 
@@ -112,6 +118,7 @@ function resolveRepoData(site, config, existsRepos = {}) {
       name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
       base: `/projects/${projectSlug}`,
       collection: 'docs',
+      customized,
       toc,
     };
 

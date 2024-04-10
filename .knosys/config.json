@@ -1,5 +1,5 @@
 {
-  "command": "./scripts",
+  "command": "./.knosys/scripts",
   "site": {
     "default": {
       "generator": "hexo",

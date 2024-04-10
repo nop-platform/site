@@ -1,15 +1,13 @@
-const { resolve: resolvePath } = require('path');
 const { execSync } = require('child_process');
 const { pick } = require('@ntks/toolbox');
-const { ensureDirExists, copyFileDeeply, cp, saveData } = require('@knosys/sdk');
+const { resolveRootPath, ensureDirExists, copyFileDeeply, cp, saveData } = require('@knosys/sdk');
 const { execute } = require('ksio');
 
 const { getNopThemeDirPath } = require('./helper');
 
-const rootPath = resolvePath(__dirname, '..');
 const pkgName = '@nop-community/hexo-theme-site';
 
-function copyMetaFiles() {
+function copyMetaFiles(rootPath) {
   const distDir = `${rootPath}/dist`;
   const readmeTemplate = `# \`${pkgName}\`
 `;
@@ -18,7 +16,7 @@ function copyMetaFiles() {
   // cp(`${rootPath}/CHANGELOG.md`, `${distDir}/`);
 }
 
-function copyThemeFiles() {
+function copyThemeFiles(rootPath) {
   const themeSrcPath = getNopThemeDirPath();
   const themeDistPath = `${rootPath}/dist`;
 
@@ -34,14 +32,16 @@ function copyThemeFiles() {
     keywords: ['nop', 'nop-platform', 'nop-community', 'knosys', 'ksio', 'hexo', 'theme'],
     ...pkgFields,
   }, null, 2));
-  copyMetaFiles();
-  cp(`${rootPath}/scripts/helper/nop-project.js`, `${themeDistPath}/index.js`);
+  copyMetaFiles(rootPath);
+  cp(`${rootPath}/.knosys/scripts/helper/nop-project.js`, `${themeDistPath}/index.js`);
 }
 
 module.exports = {
   execute: (type = 'site', site = 'zh') => {
+    const rootPath = resolveRootPath();
+
     if (type === 'theme') {
-      copyThemeFiles();
+      copyThemeFiles(rootPath);
       execSync('npm publish --access=public', { stdio: 'inherit', cwd: `${rootPath}/dist` });
     } else if (type === 'site') {
       execSync('npm run clean', { stdio: 'inherit', cwd: rootPath });
