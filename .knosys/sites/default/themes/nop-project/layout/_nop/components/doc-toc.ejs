@@ -19,7 +19,7 @@
           <% _inc_item_url = `${_inc_item_url}${_inc_item.slug}/` %>
           <% _inc_doc_url = `${_inc_doc_url}/${_inc_item.slug}/` %>
         <% } %>
-        <a data-re="<%= _inc_relative_url %>" data-uuu="<%= _inc_item_url %>"<% if (_inc_relative_url === _inc_item_url) { %> class="is-selected"<% } %> href="<%= _inc_doc_url %>"><%= _inc_item.text %></a>
+        <a<% if (_inc_relative_url === _inc_item_url) { %> class="is-selected"<% } %> href="<%= _inc_doc_url %>"><%= _inc_item.text %></a>
       <% } else { %>
         <span><%= _inc_item.text %></span>
       <% } %>

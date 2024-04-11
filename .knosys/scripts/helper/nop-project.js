@@ -149,10 +149,7 @@ function generateProjectDocs(site, opts = {}) {
   }
 
   keys.forEach(key => execute('generate', site, key));
-
-  if (siteConfig.generator === 'hexo') {
-    setTimeout(() => resolveRepoData(site, siteConfig, repos));
-  }
+  setTimeout(() => resolveRepoData(site, siteConfig, repos));
 }
 
 module.exports = { resolveSiteSrcDir, generateProjectDocs };

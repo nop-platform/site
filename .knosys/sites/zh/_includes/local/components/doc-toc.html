@@ -11,10 +11,20 @@
         {% assign _inc_path_spec = "file" %}
       {% endif %}
       {% assign _inc_base_part = include.base | default: "" %}
-      {% if _inc_item.items %}
-        <span>{{ _inc_item.text }}</span>
-        {% include local/components/doc-toc.html repo=include.repo items=_inc_item.items base=_inc_base_part collection=_inc_collection %}
+      {% if include.customized == true %}
+        {% if _inc_item.slug %}
+          {% assign _inc_linkable = true %}
+        {% else %}
+          {% assign _inc_linkable = false %}
+        {% endif %}
       {% else %}
+        {% if _inc_item.items %}
+          {% assign _inc_linkable = false %}
+        {% else %}
+          {% assign _inc_linkable = true %}
+        {% endif %}
+      {% endif %}
+      {% if _inc_linkable %}
         {% assign _inc_base_url = _inc_site_url | append: _inc_base_part %}
         {% assign _inc_relative_url = page.url | replace: _inc_base_part, "" %}
         {% if _inc_path_spec == "qiidb" %}
@@ -39,6 +49,11 @@
           {% endif %}
           <a{% if _inc_relative_url == _inc_item_url %} class="is-selected"{% endif %} href="{{ _inc_doc_url }}">{{ _inc_item.text }}</a>
         {% endif %}
+      {% else %}
+        <span>{{ _inc_item.text }}</span>
+      {% endif %}
+      {% if _inc_item.items %}
+        {% include local/components/doc-toc.html repo=include.repo items=_inc_item.items base=_inc_base_part collection=_inc_collection customized=include.customized %}
       {% endif %}
     </li>
   {% endfor %}
