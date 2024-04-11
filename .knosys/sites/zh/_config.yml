@@ -13,9 +13,6 @@ collections:
   pages:
     output: true
     permalink: /:path/
-  projects:
-    output: true
-    permalink: /:collection/:path/
 
 # Handling Reading
 exclude:
@@ -81,6 +78,14 @@ defaults:
     values:
       repo: cookbook
   - scope:
+      path: "site/cookbook/projects"
+      type: knosys
+    values:
+      layout: local/project
+      css:
+        - local/layouts/project
+      repo:
+  - scope:
       path: "project-nop-entropy"
       type: knosys
     values:
@@ -103,13 +108,6 @@ defaults:
         - ksio/initializers/time
         - ksio/initializers/lazyload
       siblings: true
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: local/project
-      css:
-        - local/layouts/project
 
 
 

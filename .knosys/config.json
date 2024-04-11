@@ -4,6 +4,7 @@
     "default": {
       "generator": "hexo",
       "data": {
+        "site": "./data",
         "project-nop-entropy": "../nop-entropy/docs"
       }
     },

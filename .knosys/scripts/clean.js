@@ -1,5 +1,7 @@
 const { resolve: resolvePath } = require('path');
-const { resolveRootPath, getConfig, rm } = require('@knosys/sdk');
+const { resolveRootPath, rm } = require('@knosys/sdk');
+
+const { resolveSiteSrcDir } = require('./helper');
 
 const patterns = [
   '/.cache/',
@@ -12,10 +14,8 @@ const patterns = [
 
 module.exports = {
   execute: (site = 'default') => {
-    const { source } = getConfig(`site.${site}`);
+    const srcDir = resolveSiteSrcDir(site);
 
-    if (source) {
-      patterns.forEach(p => rm(resolvePath(resolveRootPath(), `${source}/${p}`)));
-    }
+    patterns.forEach(p => rm(resolvePath(resolveRootPath(), `${srcDir}/${p}`)));
   },
 };
