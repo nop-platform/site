@@ -1,7 +1,4 @@
-const { resolveRootPath, ensureDirExists, copyFileDeeply } = require('@knosys/sdk');
-const { execute } = require('ksio');
-
-const { getNopThemeDirPath } = require('./helper');
+const { resolveRootPath, ensureDirExists, copyFileDeeply, execute, getNopThemeDirPath } = require('./helper');
 
 module.exports = {
   execute: site => {

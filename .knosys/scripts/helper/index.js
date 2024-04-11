@@ -1,10 +1,10 @@
 const { resolve: resolvePath } = require('path');
-const { resolveRootPath } = require('@knosys/sdk');
 
-const utils = require('./nop-project');
+const ksUtils = require('./knosys');
+const nopUtils = require('./nop-project');
 
 function getNopThemeDirPath() {
-  return resolvePath(resolveRootPath(), utils.resolveSiteSrcDir('default'), 'themes/nop-project');
+  return resolvePath(ksUtils.resolveRootPath(), nopUtils.resolveSiteSrcDir('default'), 'themes/nop-project');
 }
 
-module.exports = { ...utils, getNopThemeDirPath };
+module.exports = { ...ksUtils, ...nopUtils, getNopThemeDirPath };

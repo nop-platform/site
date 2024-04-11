@@ -1,15 +1,15 @@
 {
   "name": "@nop/website",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Official website",
   "private": true,
   "main": "index.js",
   "scripts": {
-    "copy": "ksio copy",
-    "build": "ksio gen",
-    "clean": "ksio clean",
-    "start": "ksio serve",
-    "release": "ksio release"
+    "copy": "node .knosys/scripts copy",
+    "build": "node .knosys/scripts gen",
+    "clean": "node .knosys/scripts clean",
+    "start": "node .knosys/scripts serve",
+    "release": "node .knosys/scripts release"
   },
   "author": "Ourai L. <ourairyu@gmail.com>",
   "license": "MIT",
@@ -32,6 +32,6 @@
   "devDependencies": {
     "@ntks/toolbox": "0.0.6",
     "hexo-theme-lime": "0.0.0-alpha.1",
-    "ksio": "0.0.0"
+    "ksio": "0.0.1"
   }
 }

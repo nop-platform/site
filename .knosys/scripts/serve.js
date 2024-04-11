@@ -1,9 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const { pick } = require('@ntks/toolbox');
-const { resolveRootPath, getConfig, readData, saveData } = require('@knosys/sdk');
-const { execute } = require('ksio');
 
-const { resolveSiteSrcDir } = require('./helper');
+const { resolveRootPath, getConfig, readData, saveData, execute, resolveSiteSrcDir } = require('./helper');
 
 module.exports = {
   execute: (site = 'default') => {

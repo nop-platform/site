@@ -1,7 +1,6 @@
 const { resolve: resolvePath } = require('path');
-const { readData } = require('@knosys/sdk');
 
-const { generateProjectDocs } = require('../helper');
+const { readData, generateProjectDocs } = require('../helper');
 
 module.exports = {
   execute: (site = 'default', sourceKey) => generateProjectDocs(site, {

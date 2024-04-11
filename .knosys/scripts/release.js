@@ -1,9 +1,7 @@
 const { execSync } = require('child_process');
 const { pick } = require('@ntks/toolbox');
-const { resolveRootPath, ensureDirExists, copyFileDeeply, cp, saveData } = require('@knosys/sdk');
-const { execute } = require('ksio');
 
-const { getNopThemeDirPath } = require('./helper');
+const { resolveRootPath, ensureDirExists, copyFileDeeply, cp, saveData, execute, getNopThemeDirPath } = require('./helper');
 
 const pkgName = '@nop-community/hexo-theme-site';
 
