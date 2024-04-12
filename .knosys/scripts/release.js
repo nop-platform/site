@@ -28,6 +28,7 @@ function copyThemeFiles(rootPath) {
     description: 'Theme for Nop project docs',
     main: 'index.js',
     keywords: ['nop', 'nop-platform', 'nop-community', 'knosys', 'ksio', 'hexo', 'theme'],
+    peerDependencies: { 'hexo-front-matter-defaults': '~0.0.0' },
     ...pkgFields,
   }, null, 2));
   copyMetaFiles(rootPath);

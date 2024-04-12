@@ -163,6 +163,7 @@ ksio:
             - local/pages/index
     page:
       - scope:
+          path: ""
           type: posts
         values:
           ksio_asset_css:
@@ -174,6 +175,7 @@ ksio:
             - javascripts/ksio/vendors/jquery.lazyload
             - javascripts/ksio/initializers/lazyload
       - scope:
+          path: ""
           type: knosys
         values:
           layout: _nop/layouts/doc
@@ -186,6 +188,22 @@ ksio:
             - javascripts/ksio/initializers/time
             - javascripts/ksio/vendors/jquery.lazyload
             - javascripts/ksio/initializers/lazyload
+      - scope:
+          path: site/cookbook
+          type: knosys
+        values:
+          repo: cookbook
+      - scope:
+          path: site/cookbook/projects
+          type: knosys
+        values:
+          layout: page
+          repo:
+          ksio_asset_css: []
+      - scope:
+          path: project-nop-entropy
+          type: knosys
+        values:
           repo: nop-entropy
 
 # Deployment
