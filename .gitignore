@@ -21,10 +21,12 @@ node_modules/
 !/.knosys/sites/default/source/_posts/hello-world.md
 /.knosys/sites/default/themes/*/layout/*
 !/.knosys/sites/default/themes/*/layout/_nop/
+!/.knosys/sites/default/themes/*/layout/_local/
 /.knosys/sites/default/themes/*/scripts/
 /.knosys/sites/default/themes/*/source/fonts/*
 /.knosys/sites/default/themes/*/source/images/*
 !/.knosys/sites/default/themes/*/source/images/nop/
+!/.knosys/sites/default/themes/*/source/images/local/
 /.knosys/sites/default/themes/*/source/javascripts/*
 /.knosys/sites/default/themes/*/source/stylesheets/*
 !/.knosys/sites/default/themes/*/_config.yml

@@ -1,0 +1,22 @@
+<h2>核心成员</h2>
+<ul class="MemberList">
+  <% site.data['local/members'].forEach(mem => { %>
+    <li class="MemberList-item">
+      <div class="Member">
+        <div class="Member-header">
+          <%- image_tag(`images/local/avatars/${mem.slug}.jpg`, { class: 'Member-avatar', alt: mem.name }) %>
+          <h3 class="Member-name" data-toc-skip="true"><% if (mem.website) { %><a href="<%= mem.website %>" target="_blank" rel="external nofollow"><%= mem.name %></a><% } else { %><%= mem.name %><% } %></h3>
+          <p class="Member-job"><%= mem.job %><% if (mem.org) { %> @ <%= mem.org %><% } %></p>
+          <% if (mem.sponsor) { %><a class="Member-sponsor" href="<%= mem.sponsor %>" target="_blank" rel="external nofollow"><i class="fa fa-heart"></i><span>资助</span></a><% } %>
+        </div>
+        <div class="Member-body">
+          <div class="Member-projects"><i class="fa fa-code"></i><ul>
+            <% mem.projects.forEach(prj => { %>
+              <li><a href="<%= prj.url %>" target="_blank" rel="external nofollow"><%= prj.name %></a></li>
+            <% }) %>
+          </ul></div>
+        </div>
+      </div>
+    </li>
+  <% }) %>
+</ul>

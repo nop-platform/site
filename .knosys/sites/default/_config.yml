@@ -157,6 +157,10 @@ ksio:
             - javascripts/ksio/components/toc
       _nop/layouts/doc:
         extends: ksio/doc
+      _local/layouts/index:
+        values:
+          ksio_asset_css:
+            - local/pages/index
     page:
       - scope:
           type: posts
