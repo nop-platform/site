@@ -8,6 +8,15 @@ nop-entropy:
   name: Nop Entropy 项目文档
   base: /projects/nop-entropy
   collection: docs
+  source:
+    local: knosys/project-nop-entropy
+    remote:
+      default:
+        host: github.com
+        url: 'https://github.com/entropy-cloud/nop-entropy/edit/master/docs/:path'
+      zh:
+        host: gitee.com
+        url: 'https://gitee.com/canonical-entropy/nop-entropy/edit/master/docs/:path'
   toc:
     - text: 介绍
       slug: why-nop

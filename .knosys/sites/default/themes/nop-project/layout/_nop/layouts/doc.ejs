@@ -13,7 +13,24 @@
         <%- partial('_ksio/slots/header') %>
       </header>
       <div class="Article-content col-md-9"><%- partial('_ksio/slots/content') %></div>
-      <footer class="Article-footer col-md-3"><%- partial('_ksio/slots/footer') %></footer>
+      <footer class="Article-footer col-md-3">
+        <% if (repo && repo.source && repo.source.remote &&  repo.source.remote.default) { %>
+          <% const repoSource = repo.source.remote.zh || repo.source.remote.default %>
+          <% let sourceUrl = repoSource.url %>
+          <% let sourceText %>
+          <% if (repoSource.host === 'github.com') { %>
+            <% sourceText = 'GitHub' %>
+          <% } else if (repoSource.host === 'gitee.com') { %>
+            <% sourceText = 'Gitee' %>
+          <% } %>
+          <% if (sourceUrl && sourceText) { %>
+            <div class="Widget">
+              <div class="Widget-body"><a href="<%= sourceUrl.replace(':path', page.source.replace(`${repo.source.local}/`, '')) %>" target="_blank" rel=" rel="external nofollow"">在 <%= sourceText %> 上编辑文档内容</a></div>
+            </div>
+          <% } %>
+        <% } %>
+        <%- partial('_ksio/slots/footer') %>
+      </footer>
     </article>
     <%- partial(theme.footer && theme.footer.partial || '_ksio/partials/footer') %>
   </main>

@@ -72,7 +72,7 @@ tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
-meta_generator: true
+meta_generator: false
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -99,8 +99,6 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: nop-project
 theme_config:
-  brand:
-    # icon: "logo"
   header:
     navs:
       - text: 学习

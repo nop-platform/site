@@ -2,6 +2,7 @@ meta:
   url: https://nop-platform.gitee.io
 brand:
   text: Nop
+  icon: "images/nop/logo.png"
   color: "#0871ab"
 copyright:
   owner:

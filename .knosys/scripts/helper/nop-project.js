@@ -1,7 +1,7 @@
 const { resolve: resolvePath } = require('path');
 const { existsSync } = require('fs');
-const { isArray, isPlainObject, capitalize } = require('@ntks/toolbox');
-const { resolveRootPath, getConfig, isDirectory, ensureDirExists, readData, saveData, normalizeFrontMatter } = require('@knosys/sdk');
+const { isString, isArray, isPlainObject, capitalize } = require('@ntks/toolbox');
+const { resolveRootPath, getConfig, isDirectory, ensureDirExists, readData, readMeta, saveData, normalizeFrontMatter } = require('@knosys/sdk');
 const { execute } = require('ksio');
 
 function resolveSiteSrcDir(site) {
@@ -88,10 +88,28 @@ function resolveCustomizedDocToc(srcPath, items, parentUri, docData) {
   return resolved;
 }
 
+function resolveRepoSource(sourceUrl) {
+  return {
+    host: new URL(sourceUrl).hostname,
+    url: sourceUrl,
+  };
+}
+
 function resolveRepoData(site, config, existsRepos = {}) {
   const rootPath = resolveRootPath();
-  const siteDataDir = resolvePath(rootPath, `${resolveSiteSrcDir(site)}${config.generator === 'hexo' ? '/source' : ''}/_data`);
 
+  let distDataDir;
+  let distDocDir;
+
+  if (config.generator === 'hexo') {
+    distDataDir = '/source';
+    distDocDir = 'knosys';
+  } else {
+    distDataDir = '';
+    distDocDir = '_knosys';
+  }
+
+  const siteDataDir = resolvePath(rootPath, `${resolveSiteSrcDir(site)}${distDataDir}/_data`);
   const projectRepos = {};
 
   Object.entries(config.data).forEach(([srcKey, srcDir]) => {
@@ -113,11 +131,23 @@ function resolveRepoData(site, config, existsRepos = {}) {
     }
 
     const projectSlug = srcKey.replace(/^project\-/, '');
+    const source = { local: `${distDocDir}/${srcKey}` };
+
+    const { editable } = readMeta(srcPath);
+
+    if (editable) {
+      if (isString(editable)) {
+        source.remote = { default: resolveRepoSource(editable) };
+      } else if (isPlainObject(editable)) {
+        source.remote = Object.entries(editable).reduce((prev, [locale, sourceUrl]) => ({ ...prev, [locale]: resolveRepoSource(sourceUrl) }), {});
+      }
+    }
 
     projectRepos[projectSlug] = {
       name: `${projectSlug.split('-').map(w => capitalize(w)).join(' ')} 项目文档`,
       base: `/projects/${projectSlug}`,
       collection: 'docs',
+      source,
       toc,
       customized,
     };
