@@ -36,7 +36,7 @@ function copyThemeFiles(rootPath) {
 }
 
 module.exports = {
-  execute: (type = 'site', site = 'zh') => {
+  execute: (type = 'site', site = 'default') => {
     const rootPath = resolveRootPath();
 
     if (type === 'theme') {

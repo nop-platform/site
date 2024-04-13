@@ -35,7 +35,8 @@ nop-entropy:
     - text: 用户指南
       slug: user-guide
       items:
-        - text: '安装和配置 [NOP_ERR: `user-guide/installation.md` 不存在或不是文件 ]'
+        - text: 安装和配置
+          slug: user-guide/installation
         - text: 报表引擎
           slug: user-guide/report
         - text: IDEA插件使用
@@ -61,21 +62,21 @@ nop-entropy:
               slug: dev-guide/cli
             - text: 命令行开发支持
               slug: dev-guide/command/command
-        - text: config
+        - text: 配置管理
           slug: dev-guide/config
         - text: IoC容器
           slug: dev-guide/ioc
           items:
             - text: AOP支持
               slug: dev-guide/ioc/aop
-        - text: orm
+        - text: ORM框架
           slug: dev-guide/orm
-        - text: XLang
+        - text: XLang语言
           slug: dev-guide/xlang
           items:
             - text: XDef元模型
               slug: dev-guide/xlang/xdef
-            - text: XDSL
+            - text: XDSL领域语言
               slug: dev-guide/xlang/xdsl
             - text: XScript脚本语言
               slug: dev-guide/xlang/xscript

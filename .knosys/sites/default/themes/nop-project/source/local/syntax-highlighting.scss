@@ -1,0 +1,13 @@
+@import "./github";
+
+.hljs {
+  background-color: transparent;
+}
+
+figure.highlight > table {
+  width: 100%;
+
+  pre {
+    margin-bottom: 0;
+  }
+}

@@ -45,16 +45,13 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
   enable: false
-  preprocess: true
-  line_number: true
-  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -104,7 +101,7 @@ theme_config:
       - text: 学习
         children:
           - text: 指南
-            url: /projects/nop-entropy/docs/
+            url: /projects/nop-entropy/docs
           - text: 文章
             url: https://www.zhihu.com/column/reversible-computation
           - text: 视频
@@ -112,15 +109,15 @@ theme_config:
       - text: 项目
         children:
           - text: Nop Entropy
-            url: /projects/nop-entropy/
+            url: /projects/nop-entropy
           - text: Nop Chaos
-            url: /projects/nop-chaos/
+            url: /projects/nop-chaos
       - text: 关于
         children:
           - text: 社区
-            url: /community/
+            url: /community
           - text: 团队
-            url: /team/
+            url: /team
           - text: Gitee 组织
             url: https://gitee.com/nop-platform
       - text: English
@@ -130,9 +127,9 @@ theme_config:
   footer:
     links:
       - text: 指南
-        url: /projects/nop-entropy/docs/
+        url: /projects/nop-entropy/docs
       - text: 社区
-        url: /community/
+        url: /community
 
 ksio:
   defaults:
@@ -180,6 +177,7 @@ ksio:
         values:
           layout: _nop/layouts/doc
           ksio_asset_css:
+            - local/syntax-highlighting
             - stylesheets/pages/post
             - stylesheets/pages/doc
           ksio_asset_js:

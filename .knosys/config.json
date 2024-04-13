@@ -6,6 +6,10 @@
       "data": {
         "site": "./data",
         "project-nop-entropy": "../nop-entropy/docs"
+      },
+      "git": {
+        "url": "git@gitee.com:nop-platform/nop-platform.git",
+        "branch": "master"
       }
     },
     "zh": {
@@ -13,10 +17,6 @@
       "data": {
         "site": "./data",
         "project-nop-entropy": "../nop-entropy/docs"
-      },
-      "git": {
-        "url": "git@gitee.com:nop-platform/nop-platform.git",
-        "branch": "master"
       }
     },
     "en": {

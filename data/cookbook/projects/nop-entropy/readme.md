@@ -14,7 +14,7 @@ Nop Entropy 是 Nop 平台的后端部分，前端部分可使用 [Nop Chaos](..
 
 ## 新手入门
 
-请查看[本项目文档](/projects/nop-entropy/docs/)。
+请查看[本项目文档](/projects/nop-entropy/docs)。
 
 ### 示例工程
 
