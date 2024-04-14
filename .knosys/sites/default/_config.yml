@@ -130,6 +130,9 @@ theme_config:
         url: /projects/nop-entropy/docs
       - text: 社区
         url: /community
+  analytics:
+    - provider: baidu
+      code: f8ce4b3ea0ca58886cf92248c093c7d9
 
 ksio:
   defaults:
