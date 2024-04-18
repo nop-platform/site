@@ -8,7 +8,7 @@
         "project-nop-entropy": "../nop-entropy/docs"
       },
       "git": {
-        "url": "git@gitee.com:nop-platform/nop-platform.git",
+        "url": "https://github.com/nop-platform/nop-platform.gitee.io.git",
         "branch": "master"
       }
     },

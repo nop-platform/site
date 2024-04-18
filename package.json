@@ -1,6 +1,6 @@
 {
   "name": "@nop/website",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Official website",
   "private": true,
   "main": "index.js",
@@ -28,6 +28,6 @@
   "devDependencies": {
     "@ntks/toolbox": "0.0.6",
     "hexo-theme-lime": "0.0.0-alpha.3",
-    "ksio": "0.0.2"
+    "ksio": "0.0.3"
   }
 }
