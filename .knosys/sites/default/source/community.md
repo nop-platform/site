@@ -16,7 +16,7 @@ title: 社区
 
 | 项目 | Git 仓库 |
 | --- | --- |
-| 官方网站 | [`nop-platform/nop-platform`](https://gitee.com/nop-platform/nop-platform/issues) |
+| 官方网站 | [`nop-platform/site`](https://github.com/nop-platform/site/issues) |
 | Nop 平台 | [`canonical-entropy/nop-entropy`](https://gitee.com/canonical-entropy/nop-entropy/issues) |
 
 ## 讨论群组

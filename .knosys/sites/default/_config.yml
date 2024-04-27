@@ -118,10 +118,6 @@ theme_config:
             url: /community
           - text: 团队
             url: /team
-          - text: Gitee 组织
-            url: https://gitee.com/nop-platform
-      - text: English
-        url: https://nop-platform.github.io
     navbar:
       placement: right
   footer:
@@ -130,6 +126,10 @@ theme_config:
         url: /projects/nop-entropy/docs
       - text: 社区
         url: /community
+      - text: GitHub
+        url: https://github.com/nop-platform
+      - text: Gitee
+        url: https://gitee.com/nop-platform
   analytics:
     - provider: baidu
       code: f8ce4b3ea0ca58886cf92248c093c7d9

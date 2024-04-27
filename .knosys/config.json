@@ -2,6 +2,20 @@
   "command": "./.knosys/scripts",
   "site": {
     "default": {
+      "alias": "nop-github",
+      "generator": "hexo",
+      "data": {
+        "site": "./data",
+        "project-nop-entropy": "../nop-entropy/docs"
+      },
+      "git": {
+        "url": "https://github.com/nop-platform/nop-platform.github.io.git",
+        "branch": "main"
+      }
+    },
+    "cn": {
+      "source": "./.knosys/sites/default",
+      "alias": "nop-gitee",
       "generator": "hexo",
       "data": {
         "site": "./data",
@@ -20,11 +34,7 @@
       }
     },
     "en": {
-      "alias": "nop-en",
-      "git": {
-        "url": "https://github.com/nop-platform/nop-platform.github.io.git",
-        "branch": "main"
-      }
+      "alias": "nop-en"
     }
   }
 }
